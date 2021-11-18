@@ -120,8 +120,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rb: {fileID: 8989130985515071514}
-  Cc: {fileID: 8989130985515071519}
+  Bc: {fileID: 8989130985515071519}
   touchingGround: 0
+  maxVel: 5
+  jump: 210
+  speed: 10
 --- !u!61 &8989130985515071519
 BoxCollider2D:
   m_ObjectHideFlags: 0

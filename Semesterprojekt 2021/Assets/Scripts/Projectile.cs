@@ -33,5 +33,9 @@ public class Projectile : MonoBehaviour
 
             Destroy(gameObject);
         }
+        if (collider.gameObject.CompareTag("Border"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
