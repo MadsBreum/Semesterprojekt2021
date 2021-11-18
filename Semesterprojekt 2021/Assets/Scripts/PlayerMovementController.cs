@@ -9,6 +9,8 @@ public class PlayerMovementController : MonoBehaviour
     public BoxCollider2D Bc = new BoxCollider2D();
     public bool touchingGround;
     public float maxVel = 5;
+    bool movingRight = true;
+
     void Start()
     {
         Rb.GetComponent<Rigidbody2D>();
@@ -19,7 +21,23 @@ public class PlayerMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            if (movingRight == false)
+            {
+                Flip();
+            }
+            movingRight = true;
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            if (movingRight == true)
+            {
+                Flip();
+            }
+            movingRight = false;
+        }
     }
     void FixedUpdate()
     {
@@ -29,7 +47,7 @@ public class PlayerMovementController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            Rb.AddForce(transform.right * -10f);
+            Rb.AddForce(transform.right * 10f);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
@@ -59,4 +77,8 @@ public class PlayerMovementController : MonoBehaviour
             touchingGround = true;
     }
 
+    private void Flip()
+    {
+        transform.Rotate(new Vector3(0f, 180f, 0f));
+    }
 }
