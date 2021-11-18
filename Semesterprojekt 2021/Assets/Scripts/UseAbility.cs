@@ -6,6 +6,7 @@ public class UseAbility : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject projectilePrefab;
+    public GameObject BigProjectile;
     public float cooldownTime = 2;
     bool offCooldown = true;
     
