@@ -9,6 +9,8 @@ public class PlayerMovementController : MonoBehaviour
     public BoxCollider2D Bc = new BoxCollider2D();
     public bool touchingGround;
     public float maxVel = 5;
+    public float jump = 210;
+    public float speed = 10;
     void Start()
     {
         Rb.GetComponent<Rigidbody2D>();
@@ -25,15 +27,15 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.UpArrow) && touchingGround)
         {
-            Rb.AddForce(transform.up * 210f);
+            Rb.AddForce(transform.up * jump);
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            Rb.AddForce(transform.right * -10f);
+            Rb.AddForce(transform.right * speed);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            Rb.AddForce(transform.right * 10f);
+            Rb.AddForce(transform.right * speed);
         }
         if (Rb.velocity.x > maxVel)
         {
