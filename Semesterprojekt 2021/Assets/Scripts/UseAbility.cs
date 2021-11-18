@@ -7,7 +7,6 @@ public class UseAbility : MonoBehaviour
     public Transform firePoint;
     public GameObject Fireball;
     public GameObject BigProjectile;
-    
 
     public float cooldownTimeFireball = 2;
     public float cooldownTimeFirering = 2;
@@ -55,9 +54,8 @@ public class UseAbility : MonoBehaviour
 
     void UseFirering()
     {
-        //firering.active = true;
-
         transform.GetChild(1).gameObject.SetActive(true);
+
     }
 
     IEnumerator FireballCooldown()
@@ -76,7 +74,6 @@ public class UseAbility : MonoBehaviour
 
         yield return new WaitForSeconds(cooldownTimeFireball);
 
-        //transform.GetChild(1).gameObject.SetActive(false);
         offCooldownFirering = true;
         Debug.Log("Off cooldown");
     }
