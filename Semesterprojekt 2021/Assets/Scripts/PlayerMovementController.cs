@@ -6,13 +6,13 @@ public class PlayerMovementController : MonoBehaviour
 {
     // Start is called before the first frame update
     public Rigidbody2D Rb = new Rigidbody2D();
-    public BoxCollider2D Cc = new BoxCollider2D();
+    public BoxCollider2D Bc = new BoxCollider2D();
     public bool touchingGround;
     float maxVel = 5;
     void Start()
     {
         Rb.GetComponent<Rigidbody2D>();
-        Cc.GetComponent<BoxCollider2D>();
+        Bc.GetComponent<BoxCollider2D>();
         Rb.freezeRotation = true;
     }
 
@@ -47,7 +47,7 @@ public class PlayerMovementController : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Platform" && collision.otherCollider == Cc)
+        if (collision.gameObject.tag == "Platform" && collision.otherCollider == Bc)
         {
             touchingGround = false;
         }
@@ -55,7 +55,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Platform" && collision.otherCollider == Cc)
+        if (collision.gameObject.tag == "Platform" && collision.otherCollider == Bc)
             touchingGround = true;
     }
 
