@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &237835230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 237835231}
+  m_Layer: 0
+  m_Name: Firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &237835231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237835230}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.15000057, y: -0.047251515, z: -2.8118086}
+  m_LocalScale: {x: 1, y: 0.6750211, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5064753208265406843}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8398858899781534861
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,6 +44,8 @@ GameObject:
   - component: {fileID: 8989130985515071515}
   - component: {fileID: 8989130985515071519}
   - component: {fileID: 8989130985515071517}
+  - component: {fileID: 1500073465}
+  - component: {fileID: 1500073466}
   m_Layer: 0
   m_Name: Player(Benjamin)
   m_TagString: Player
@@ -28,10 +60,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8398858899781534861}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.14, y: -1.91, z: 0}
   m_LocalScale: {x: 1, y: 1.4814352, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 237835231}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -167,3 +200,32 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
+--- !u!114 &1500073465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8398858899781534861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 992cd260c9f149849b9ca612aa5766ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 237835231}
+  projectilePrefab: {fileID: 6444768389461225142, guid: 7a66b02c4b7a4124b88cf7f03919908e, type: 3}
+  BigProjectile: {fileID: 0}
+  cooldownTime: 2
+--- !u!114 &1500073466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8398858899781534861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d70d9deb060c2a643a8f94f5de72aee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p_StartingHealth: 100
