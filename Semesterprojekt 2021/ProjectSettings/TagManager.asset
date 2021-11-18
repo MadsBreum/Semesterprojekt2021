@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - Border
+  - Player2
   layers:
   - Default
   - TransparentFX
