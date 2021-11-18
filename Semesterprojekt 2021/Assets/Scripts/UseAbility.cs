@@ -5,11 +5,13 @@ using UnityEngine;
 public class UseAbility : MonoBehaviour
 {
     public Transform firePoint;
-    public GameObject projectilePrefab;
+    public GameObject Fireball;
     public GameObject BigProjectile;
-    public float cooldownTime = 2;
-    bool offCooldown = true;
-    
+
+    public float cooldownTimeFireball = 2;
+    public float cooldownTimeFirering = 2;
+    bool offCooldownFireball = true;
+    bool offCooldownFirering = true;
 
     // Start is called before the first frame update
     void Start()
@@ -23,31 +25,56 @@ public class UseAbility : MonoBehaviour
         // If the comma key is pressed once, and if it's not on cooldown, then shoot the projectile
         if (Input.GetKeyDown(KeyCode.Comma))
         {
-            if (offCooldown == true)
+            if (offCooldownFireball == true)
             {
-                ShootProjectile();
+                UseFireball();
                 // Then put it on cooldown
-                StartCoroutine("Cooldown");
+                StartCoroutine("FireballCooldown");
+                Debug.Log("On cooldown");
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Period))
+        {
+            if (offCooldownFirering == true)
+            {
+                UseFirering();
+                // Then put it on cooldown
+                StartCoroutine("FireringCooldown");
                 Debug.Log("On cooldown");
             }
         }
     }
 
-    void ShootProjectile()
+    void UseFireball()
     {
         // Instantiate the Projectile Prefab from the FirePoint
-        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        Instantiate(Fireball, firePoint.position, firePoint.rotation);
     }
 
-    IEnumerator Cooldown()
+    void UseFirering()
     {
-        offCooldown = false;
+        transform.GetChild(1).gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(cooldownTime);
+    }
 
-        offCooldown = true;
+    IEnumerator FireballCooldown()
+    {
+        offCooldownFireball = false;
+
+        yield return new WaitForSeconds(cooldownTimeFireball);
+
+        offCooldownFireball = true;
         Debug.Log("Off cooldown");
     }
 
+    IEnumerator FireringCooldown()
+    {
+        offCooldownFirering = false;
 
+        yield return new WaitForSeconds(cooldownTimeFireball);
+
+        offCooldownFirering = true;
+        Debug.Log("Off cooldown");
+    }
 }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &237835230
+--- !u!1 &768715447
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 237835231}
+  - component: {fileID: 768715448}
   m_Layer: 0
   m_Name: Firepoint
   m_TagString: Untagged
@@ -16,15 +16,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &237835231
+--- !u!4 &768715448
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 237835230}
+  m_GameObject: {fileID: 768715447}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.15000057, y: -0.047251515, z: 0}
+  m_LocalPosition: {x: 0.14, y: -0.04, z: -2.8118086}
   m_LocalScale: {x: 1, y: 0.6750211, z: 1}
   m_Children: []
   m_Father: {fileID: 5064753208265406843}
@@ -64,7 +64,8 @@ Transform:
   m_LocalPosition: {x: -8.14, y: -1.91, z: 0}
   m_LocalScale: {x: 1, y: 1.4814352, z: 1}
   m_Children:
-  - {fileID: 237835231}
+  - {fileID: 768715448}
+  - {fileID: 8989130986208006367}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -156,8 +157,6 @@ MonoBehaviour:
   Bc: {fileID: 8989130985515071519}
   touchingGround: 0
   maxVel: 5
-  jump: 210
-  speed: 10
 --- !u!61 &8989130985515071519
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -209,13 +208,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8398858899781534861}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 992cd260c9f149849b9ca612aa5766ba, type: 3}
+  m_Script: {fileID: 11500000, guid: d70d9deb060c2a643a8f94f5de72aee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 237835231}
-  projectilePrefab: {fileID: 6444768389461225142, guid: 7a66b02c4b7a4124b88cf7f03919908e, type: 3}
-  BigProjectile: {fileID: 0}
-  cooldownTime: 2
+  p_StartingHealth: 100
 --- !u!114 &1500073466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +221,97 @@ MonoBehaviour:
   m_GameObject: {fileID: 8398858899781534861}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d70d9deb060c2a643a8f94f5de72aee1, type: 3}
+  m_Script: {fileID: 11500000, guid: 992cd260c9f149849b9ca612aa5766ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p_StartingHealth: 100
+  firePoint: {fileID: 768715448}
+  Fireball: {fileID: 6444768389461225142, guid: 2617074a9e98ca047be1694866e3bf23, type: 3}
+  BigProjectile: {fileID: 0}
+  cooldownTimeFireball: 2
+  cooldownTimeFirering: 2
+--- !u!1001 &1144943632989345829
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5064753208265406843}
+    m_Modifications:
+    - target: {fileID: 8312632444122450169, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
+      propertyPath: m_Name
+      value: Firering
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312632444122450169, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
+--- !u!1 &8989130986208006364 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8312632444122450169, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
+  m_PrefabInstance: {fileID: 1144943632989345829}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8989130986208006367 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
+  m_PrefabInstance: {fileID: 1144943632989345829}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1722742257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8989130986208006364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d629d936df1f746b4900293fa707c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeActive: 1
+  damage: 30
+  impactForce: 200
