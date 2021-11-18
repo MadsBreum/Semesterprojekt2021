@@ -8,7 +8,7 @@ public class PlayerMovementController : MonoBehaviour
     public Rigidbody2D Rb = new Rigidbody2D();
     public BoxCollider2D Bc = new BoxCollider2D();
     public bool touchingGround;
-    float maxVel = 5;
+    public float maxVel = 5;
     void Start()
     {
         Rb.GetComponent<Rigidbody2D>();
