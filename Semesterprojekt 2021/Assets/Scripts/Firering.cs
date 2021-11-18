@@ -25,7 +25,7 @@ public class Firering : MonoBehaviour
     {
         
     }
-
+    
     private void OnTriggerEnter2D(Collider2D collider)
     {
         // See if it hits player2
@@ -38,15 +38,17 @@ public class Firering : MonoBehaviour
                 collider.GetComponent<PlayerHealth>().TakeDamage(damage);
 
                 dealtDamage = true;
-
+                // Get the Rigidbody and apply force to push the target away
                 Rigidbody2D targetRigidbody = collider.GetComponent<Rigidbody2D>();
 
-                targetRigidbody.AddForce(transform.right * impactForce);
-            }
-            
+                Vector2 dir = targetRigidbody.transform.position - transform.position;
+                dir = dir.normalized;
+
+                targetRigidbody.AddForce (dir * impactForce);
+            }   
         }
     }
-
+    
     IEnumerator FireringActiveTime()
     {
         yield return new WaitForSeconds(timeActive);
