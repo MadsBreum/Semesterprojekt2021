@@ -11,6 +11,8 @@ public class PlayerMovementController : MonoBehaviour
     public float maxVel = 5;
     public float jump = 210;
     public float speed = 10;
+    bool movingRight = true;
+
     void Start()
     {
         Rb.GetComponent<Rigidbody2D>();
@@ -21,7 +23,23 @@ public class PlayerMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            if (movingRight == false)
+            {
+                Flip();
+            }
+            movingRight = true;
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            if (movingRight == true)
+            {
+                Flip();
+            }
+            movingRight = false;
+        }
     }
     void FixedUpdate()
     {
@@ -61,4 +79,8 @@ public class PlayerMovementController : MonoBehaviour
             touchingGround = true;
     }
 
+    private void Flip()
+    {
+        transform.Rotate(new Vector3(0f, 180f, 0f));
+    }
 }
