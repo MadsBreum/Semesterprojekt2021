@@ -53,6 +53,6 @@ public class Nuke : MonoBehaviour
     {
         yield return new WaitForSeconds(timeActive);
 
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
