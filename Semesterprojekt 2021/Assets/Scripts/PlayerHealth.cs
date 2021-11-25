@@ -8,15 +8,12 @@ public class PlayerHealth : MonoBehaviour
 
     public string playerNumber = "Player";
 
-    private float p_CurrentHealth;
-
-    private bool p_Dead;
+    public float p_CurrentHealth;
 
     private void OnEnable()
     {
         // When the player is enabled, reset the player's health and set dead to false
         p_CurrentHealth = p_StartingHealth;
-        p_Dead = false;
 
         Debug.Log(gameObject.name + "'s starting health is " + p_StartingHealth);
     }
@@ -36,11 +33,11 @@ public class PlayerHealth : MonoBehaviour
 
     void OnDeath()
     {
-        // Set p_Dead to true and turn off the GameObject
-        p_Dead = true;
+        // turn off the GameObject
 
         gameObject.SetActive(false);
 
         Debug.Log(gameObject.name + " died");
     }
+
 }
