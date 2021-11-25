@@ -23,14 +23,14 @@ public class BorderController : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             // Just for testing, so you don't have to stop and start the game everytime
-            SceneManager.LoadScene("LavaMap");
+            //SceneManager.LoadScene("LavaMap");
         }
 
         if (collision.gameObject.CompareTag("Player2"))
         {
             collision.gameObject.SetActive(false);
             // Just for testing, so you don't have to stop and start the game everytime
-            SceneManager.LoadScene("LavaMap");
+            //SceneManager.LoadScene("LavaMap");
         }
     }
     /*
