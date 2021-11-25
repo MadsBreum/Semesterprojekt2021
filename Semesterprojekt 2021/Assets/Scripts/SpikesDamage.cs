@@ -25,7 +25,7 @@ public class SpikesDamage : MonoBehaviour
         bool dealtDamage = GetComponentInParent<IceSpikes>().dealtDamage;
 
         // See if it hits player2
-        if (collider.gameObject.CompareTag("Player2"))
+        if (!collider.gameObject.CompareTag("Player2") && !collider.gameObject.CompareTag("Platform"))
         {
             if (dealtDamage == false)
             {

@@ -9,12 +9,21 @@ public class PlayerMovementController : MonoBehaviour
     public BoxCollider2D Bc = new BoxCollider2D();
 
     public bool touchingGround;
-    public float maxVel = 5;
+    public float maxVel = 45;
+    public float currentVel;
     public float jump = 210;
-    public float speed = 10;
+    public float currentJump;
+    public float speed = 60;
+    public float slowDown = 0.5f;
 
     bool movingRight = true;
     public bool canMove = true;
+
+    private void OnEnable()
+    {
+        currentVel = maxVel;
+        currentJump = jump;
+    }
 
     void Start()
     {
@@ -54,7 +63,7 @@ public class PlayerMovementController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.UpArrow) && touchingGround)
             {
-                Rb.AddForce(transform.up * jump, ForceMode2D.Impulse);
+                Rb.AddForce(transform.up * currentJump, ForceMode2D.Impulse);
             }
             if (Input.GetKey(KeyCode.LeftArrow))
             {
@@ -64,13 +73,13 @@ public class PlayerMovementController : MonoBehaviour
             {
                 Rb.AddForce(transform.right * speed);
             }
-            if (Rb.velocity.x > maxVel)
+            if (Rb.velocity.x > currentVel)
             {
-                Rb.velocity = new Vector2(maxVel, Rb.velocity.y);
+                Rb.velocity = new Vector2(currentVel, Rb.velocity.y);
             }
-            else if (Rb.velocity.x < -maxVel)
+            else if (Rb.velocity.x < -currentVel)
             {
-                Rb.velocity = new Vector2(-maxVel, Rb.velocity.y);
+                Rb.velocity = new Vector2(-currentVel, Rb.velocity.y);
             }
         }
     }
@@ -104,5 +113,22 @@ public class PlayerMovementController : MonoBehaviour
 
         canMove = true;
         Debug.Log("Not stunned anymore");
+    }
+
+    public IEnumerator Slowdown(float slowDownTime)
+    {
+        currentVel = maxVel * slowDown;
+        currentJump = jump * slowDown;
+        Rb.drag = 3;
+        Rb.gravityScale = 3;
+        Debug.Log("Slowed for " + slowDownTime + " seconds");
+
+        yield return new WaitForSeconds(slowDownTime);
+
+        currentVel = maxVel;
+        currentJump = jump;
+        Rb.drag = 6;
+        Rb.gravityScale = 6;
+        Debug.Log("Not slowed anymore");
     }
 }

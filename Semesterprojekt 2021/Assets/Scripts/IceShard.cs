@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fireball : MonoBehaviour
+public class IceShard : MonoBehaviour
 {
-    public float speed = 20f;
-    public float damage = 20f;
-    public float impactForce = 50f;
+    public float speed = 25f;
+    public float damage = 10f;
+    public float impactForce = 15f;
+    //public float slowDown = 0.5f;
+    public float slowDownTime = 1f;
 
     public Rigidbody2D rb;
 
@@ -14,8 +16,6 @@ public class Fireball : MonoBehaviour
     void Start()
     {
         rb.velocity = transform.right * speed;
-
-
     }
 
     // Update is called once per frame
@@ -32,11 +32,13 @@ public class Fireball : MonoBehaviour
             return;
         }
         // See if it hits player2
-        if (!collider.gameObject.CompareTag("Player") && !collider.gameObject.CompareTag("Platform") && !collider.gameObject.CompareTag("Border"))
+        if (!collider.gameObject.CompareTag("Player2") && !collider.gameObject.CompareTag("Platform") && !collider.gameObject.CompareTag("Untagged"))
         {
-            Debug.Log("Projectile hit " + collider.name);
+            Debug.Log("IceShard hit " + collider.tag);
             // Find the PlayerHealth component and apply damage
             collider.GetComponent<PlayerHealth>().TakeDamage(damage);
+
+            collider.GetComponent<PlayerMovementController>().StartCoroutine("Slowdown", slowDownTime);
 
             Rigidbody2D targetRigidbody = collider.GetComponent<Rigidbody2D>();
 
