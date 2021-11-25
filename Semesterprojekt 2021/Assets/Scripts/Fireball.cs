@@ -26,7 +26,10 @@ public class Fireball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-
+        if (collider.gameObject.CompareTag("Border"))
+        {
+            Destroy(gameObject);
+        }
         // See if it hits player2
         if (!collider.gameObject.CompareTag("Player") && !collider.gameObject.CompareTag("Platform"))
         {
@@ -38,10 +41,6 @@ public class Fireball : MonoBehaviour
 
             targetRigidbody.AddForce(transform.right * impactForce, ForceMode2D.Impulse);
 
-            Destroy(gameObject);
-        }
-        if (collider.gameObject.CompareTag("Border"))
-        {
             Destroy(gameObject);
         }
     }
