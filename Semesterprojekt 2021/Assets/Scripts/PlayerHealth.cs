@@ -5,13 +5,12 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public float p_StartingHealth = 100f;
-    private float p_CurrentHealth;
-    private bool p_Dead;
 
-    private void Awake()
-    {
-        
-    }
+    public string playerNumber = "Player";
+
+    private float p_CurrentHealth;
+
+    private bool p_Dead;
 
     private void OnEnable()
     {

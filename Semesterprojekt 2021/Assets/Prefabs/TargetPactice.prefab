@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 562201412853449074}
   - component: {fileID: 562201412853449072}
   - component: {fileID: 8895339570483573911}
+  - component: {fileID: 178360531}
   m_Layer: 0
   m_Name: TargetPactice
   m_TagString: Player2
@@ -100,9 +101,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 6
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 6
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 0
@@ -163,6 +164,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p_StartingHealth: 1000
+--- !u!114 &178360531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151836967220297184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342c364b910b2ba4a87cdb4a3c7e36f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rb: {fileID: 562201412853449079}
+  Bc: {fileID: 562201412853449074}
+  touchingGround: 0
+  maxVel: 45
+  jump: 20
+  speed: 0
+  canMove: 1
 --- !u!1 &8895339571175385779
 GameObject:
   m_ObjectHideFlags: 0

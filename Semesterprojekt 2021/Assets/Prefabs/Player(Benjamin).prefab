@@ -30,6 +30,36 @@ Transform:
   m_Father: {fileID: 5064753208265406843}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1717663081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1717663082}
+  m_Layer: 0
+  m_Name: Firepoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1717663082
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717663081}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
+  m_LocalScale: {x: 1, y: 0.6750211, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5064753208265406843}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8398858899781534861
 GameObject:
   m_ObjectHideFlags: 0
@@ -41,11 +71,12 @@ GameObject:
   - component: {fileID: 5064753208265406843}
   - component: {fileID: 8989130985515071516}
   - component: {fileID: 8989130985515071514}
-  - component: {fileID: 8989130985515071515}
   - component: {fileID: 8989130985515071519}
   - component: {fileID: 8989130985515071517}
+  - component: {fileID: 8989130985515071515}
   - component: {fileID: 1500073465}
   - component: {fileID: 1500073466}
+  - component: {fileID: 2064121473}
   m_Layer: 0
   m_Name: Player(Benjamin)
   m_TagString: Player
@@ -66,6 +97,7 @@ Transform:
   m_Children:
   - {fileID: 768715448}
   - {fileID: 8989130986208006367}
+  - {fileID: 1717663082}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -133,32 +165,14 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 6
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 6
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8989130985515071515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8398858899781534861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342c364b910b2ba4a87cdb4a3c7e36f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Rb: {fileID: 8989130985515071514}
-  Bc: {fileID: 8989130985515071519}
-  touchingGround: 0
-  maxVel: 5
-  jump: 210
-  speed: 10
 --- !u!61 &8989130985515071519
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -183,7 +197,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.103479385, y: 0.105731726}
+  m_Size: {x: 0.62, y: 0.105731726}
   m_EdgeRadius: 0
 --- !u!70 &8989130985515071517
 CapsuleCollider2D:
@@ -201,6 +215,25 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
+--- !u!114 &8989130985515071515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8398858899781534861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342c364b910b2ba4a87cdb4a3c7e36f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rb: {fileID: 8989130985515071514}
+  Bc: {fileID: 8989130985515071519}
+  touchingGround: 0
+  maxVel: 45
+  jump: 20
+  speed: 60
+  canMove: 1
 --- !u!114 &1500073465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p_StartingHealth: 100
+  playerNumber: Player
 --- !u!114 &1500073466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,10 +261,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 768715448}
+  firePoint2: {fileID: 1717663082}
   Fireball: {fileID: 6444768389461225142, guid: 2617074a9e98ca047be1694866e3bf23, type: 3}
-  BigProjectile: {fileID: 0}
-  cooldownTimeFireball: 2
+  FireNuke: {fileID: 9170445176231856608, guid: 8f353e207d4b7364b938eecc2b15d78a, type: 3}
+  IceSpikes: {fileID: 2183090614552832732, guid: 6ba101814f7c2654ab8a323bf2cbb72a, type: 3}
+  cooldownTimeFireball: 1
   cooldownTimeFirering: 2
+  cooldownTimeFireNuke: 3
+  cooldownTimeIceSpikes: 1
+  playerNumber: Player2
+  canUseAbility: 1
+--- !u!114 &2064121473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8398858899781534861}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149910f13aee1b847a6c8e89fc691b40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 768715448}
+  Fireball: {fileID: 6444768389461225142, guid: 2617074a9e98ca047be1694866e3bf23, type: 3}
+  cooldownTime: 2
 --- !u!1001 &1144943632989345829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -294,7 +349,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5282251913302930194, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
 --- !u!1 &8989130986208006364 stripped
 GameObject:
@@ -320,4 +376,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeActive: 1
   damage: 30
-  impactForce: 250
+  impactForce: 25

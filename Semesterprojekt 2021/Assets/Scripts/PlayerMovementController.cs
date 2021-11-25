@@ -7,11 +7,14 @@ public class PlayerMovementController : MonoBehaviour
     // Start is called before the first frame update
     public Rigidbody2D Rb = new Rigidbody2D();
     public BoxCollider2D Bc = new BoxCollider2D();
+
     public bool touchingGround;
     public float maxVel = 5;
     public float jump = 210;
     public float speed = 10;
+
     bool movingRight = true;
+    public bool canMove = true;
 
     void Start()
     {
@@ -23,46 +26,53 @@ public class PlayerMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (canMove == true)
         {
-            if (movingRight == false)
+            if (Input.GetKey(KeyCode.RightArrow))
             {
-                Flip();
+                if (movingRight == false)
+                {
+                    Flip();
+                }
+                movingRight = true;
             }
-            movingRight = true;
-        }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            if (movingRight == true)
+            if (Input.GetKey(KeyCode.LeftArrow))
             {
-                Flip();
+                if (movingRight == true)
+                {
+                    Flip();
+                }
+                movingRight = false;
             }
-            movingRight = false;
         }
     }
+
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.UpArrow) && touchingGround)
+        if (canMove == true)
         {
-            Rb.AddForce(transform.up * jump);
+            if (Input.GetKey(KeyCode.UpArrow) && touchingGround)
+            {
+                Rb.AddForce(transform.up * jump, ForceMode2D.Impulse);
+            }
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                Rb.AddForce(transform.right * speed);
+            }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                Rb.AddForce(transform.right * speed);
+            }
+            if (Rb.velocity.x > maxVel)
+            {
+                Rb.velocity = new Vector2(maxVel, Rb.velocity.y);
+            }
+            else if (Rb.velocity.x < -maxVel)
+            {
+                Rb.velocity = new Vector2(-maxVel, Rb.velocity.y);
+            }
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            Rb.AddForce(transform.right * speed);
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            Rb.AddForce(transform.right * speed);
-        }
-        if (Rb.velocity.x > maxVel)
-        {
-            Rb.velocity = new Vector2(maxVel, Rb.velocity.y);
-        } else if (Rb.velocity.x < -maxVel)
-        {
-            Rb.velocity = new Vector2(-maxVel, Rb.velocity.y);
-        }
-
     }
 
     void OnCollisionExit2D(Collision2D collision)
@@ -82,5 +92,17 @@ public class PlayerMovementController : MonoBehaviour
     private void Flip()
     {
         transform.Rotate(new Vector3(0f, 180f, 0f));
+    }
+
+    // Stop the player from being able to move for a specific time
+    public IEnumerator Stunned(float stunTime)
+    {
+        canMove = false;
+        Debug.Log("Stunned for " + stunTime + " seconds");
+
+        yield return new WaitForSeconds(stunTime);
+
+        canMove = true;
+        Debug.Log("Not stunned anymore");
     }
 }

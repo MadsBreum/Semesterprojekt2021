@@ -7,6 +7,7 @@ public class Fireball : MonoBehaviour
     public float speed = 20f;
     public float damage = 20f;
     public float impactForce = 50f;
+
     public Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -25,8 +26,9 @@ public class Fireball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+
         // See if it hits player2
-        if (collider.gameObject.CompareTag("Player2"))
+        if (!collider.gameObject.CompareTag("Player") && !collider.gameObject.CompareTag("Platform"))
         {
             Debug.Log("Projectile hit " + collider.name);
             // Find the PlayerHealth component and apply damage
@@ -34,8 +36,12 @@ public class Fireball : MonoBehaviour
 
             Rigidbody2D targetRigidbody = collider.GetComponent<Rigidbody2D>();
 
-            targetRigidbody.AddForce(transform.right * impactForce);
+            targetRigidbody.AddForce(transform.right * impactForce, ForceMode2D.Impulse);
 
+            Destroy(gameObject);
+        }
+        if (collider.gameObject.CompareTag("Border"))
+        {
             Destroy(gameObject);
         }
     }

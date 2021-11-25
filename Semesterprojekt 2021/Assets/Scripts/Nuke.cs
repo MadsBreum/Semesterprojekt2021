@@ -2,30 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Firering : MonoBehaviour
+public class Nuke : MonoBehaviour
 {
-    public float timeActive = 1f;
+    public float timeActive = 2.5f;
     public float damage = 30f;
     public float impactForce = 50f;
+    public float nukeSize = 10f;
+
     bool dealtDamage;
 
-    private void OnEnable()
-    {
-        dealtDamage = false;
-        StartCoroutine("FireringActiveTime");
-    }
     // Start is called before the first frame update
     void Start()
     {
+        dealtDamage = false;
+        StartCoroutine("FireNukeActiveTime");
 
+        gameObject.transform.localScale = new Vector3(nukeSize, nukeSize, nukeSize);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         // See if it hits player2
@@ -44,12 +44,12 @@ public class Firering : MonoBehaviour
                 Vector2 dir = targetRigidbody.transform.position - transform.position;
                 dir = dir.normalized;
 
-                targetRigidbody.AddForce (dir * impactForce, ForceMode2D.Impulse);
-            }   
+                targetRigidbody.AddForce(dir * impactForce, ForceMode2D.Impulse);
+            }
         }
     }
-    
-    IEnumerator FireringActiveTime()
+
+    IEnumerator FireNukeActiveTime()
     {
         yield return new WaitForSeconds(timeActive);
 
