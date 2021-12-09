@@ -1034,6 +1034,8 @@ MonoBehaviour:
   wText: {fileID: 992464546}
   p1Health: {fileID: 321362428}
   p2Health: {fileID: 1848294649}
+  p1Ult: {fileID: 8722736192482725363}
+  p2Ult: {fileID: 8124003923005868336}
   p1HealthSlider: {fileID: 1975082630}
   p2HealthSlider: {fileID: 195471074}
   StartTimerText: {fileID: 630360277}
