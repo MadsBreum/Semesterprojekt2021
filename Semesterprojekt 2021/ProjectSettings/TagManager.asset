@@ -8,6 +8,7 @@ TagManager:
   - Border
   - Player2
   - Ability
+  - UltimatePoint
   layers:
   - Default
   - TransparentFX
