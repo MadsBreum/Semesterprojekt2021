@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 8216494467761335147}
   - component: {fileID: 1060902478420909705}
   - component: {fileID: 1060902478420909706}
+  - component: {fileID: 1674875217170427323}
   m_Layer: 0
   m_Name: FireWizard
   m_TagString: Player
@@ -185,7 +186,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0100731775, y: -0.45037478}
+  m_Offset: {x: 0, y: -0.455}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -196,7 +197,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.62, y: 0.105731726}
+  m_Size: {x: 0.95, y: 0.105731726}
   m_EdgeRadius: 0
 --- !u!70 &8216494467761335149
 CapsuleCollider2D:
@@ -205,7 +206,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8806692886183548925}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -277,6 +278,32 @@ MonoBehaviour:
   playerNumber: Player1
   canMove: 1
   canUseAbility: 1
+--- !u!61 &1674875217170427323
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8806692886183548925}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &1184756381598390152
 PrefabInstance:
   m_ObjectHideFlags: 0
