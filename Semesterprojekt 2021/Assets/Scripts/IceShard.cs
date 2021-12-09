@@ -32,7 +32,7 @@ public class IceShard : MonoBehaviour
             return;
         }
         // See if it hits player2
-        if (!collider.gameObject.CompareTag("Player2") && !collider.gameObject.CompareTag("Platform") && !collider.gameObject.CompareTag("Untagged"))
+        if (!collider.gameObject.CompareTag("Player2") && !collider.gameObject.CompareTag("Platform") && !collider.gameObject.CompareTag("Untagged") && !collider.gameObject.CompareTag("Abililty") && !collider.gameObject.CompareTag("Border"))
         {
             Debug.Log("IceShard hit " + collider.tag);
             // Find the PlayerHealth component and apply damage
