@@ -94,7 +94,7 @@ Transform:
   m_LocalPosition: {x: -10.1, y: -2.6, z: -1}
   m_LocalScale: {x: 1, y: 1.4814352, z: 1}
   m_Children:
-  - {fileID: 8216494469182636975}
+  - {fileID: 7146507325795393394}
   - {fileID: 1060902477003815368}
   - {fileID: 1060902478168729114}
   m_Father: {fileID: 0}
@@ -269,7 +269,7 @@ MonoBehaviour:
   firePoint2: {fileID: 1060902478168729114}
   Fireball: {fileID: 6444768389461225142, guid: 2617074a9e98ca047be1694866e3bf23, type: 3}
   FireNuke: {fileID: 9170445176231856608, guid: 8f353e207d4b7364b938eecc2b15d78a, type: 3}
-  FireRing: {fileID: 8216494469182636972}
+  FireRing: {fileID: 7146507325795393393}
   timeBetweenAbilities: 0.5
   cooldownTimeFireball: 1
   cooldownTimeFirering: 2
@@ -277,7 +277,7 @@ MonoBehaviour:
   playerNumber: Player1
   canMove: 1
   canUseAbility: 1
---- !u!1001 &97598174249192277
+--- !u!1001 &1184756381598390152
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -310,15 +310,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -332,31 +332,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3271754000766071164, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
---- !u!1 &8216494469182636972 stripped
+--- !u!1 &7146507325795393393 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8312632444122450169, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
-  m_PrefabInstance: {fileID: 97598174249192277}
+  m_PrefabInstance: {fileID: 1184756381598390152}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8216494469182636975 stripped
+--- !u!4 &7146507325795393394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
-  m_PrefabInstance: {fileID: 97598174249192277}
+  m_PrefabInstance: {fileID: 1184756381598390152}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2377632499527865089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8216494469182636972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72d629d936df1f746b4900293fa707c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeActive: 1
-  damage: 30
-  impactForce: 50

@@ -35,6 +35,8 @@ public class AbilitiesIceWizard : MonoBehaviour
         offCooldownIceShards = true;
         offCooldownIceSpikes = true;
         offCooldownIceBeam = true;
+
+        IceBeam.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

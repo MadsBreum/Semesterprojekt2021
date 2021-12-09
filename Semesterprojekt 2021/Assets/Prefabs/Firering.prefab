@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8312632444122450170}
   - component: {fileID: 8312632444122450148}
   - component: {fileID: 8312632444122450171}
-  - component: {fileID: 3271754000766071164}
+  - component: {fileID: 5663594999466396620}
   m_Layer: 0
   m_Name: FireRing
   m_TagString: Ability
@@ -110,7 +110,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3271754000766071164
+--- !u!114 &5663594999466396620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

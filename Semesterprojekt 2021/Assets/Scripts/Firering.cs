@@ -29,7 +29,7 @@ public class FireRing : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         // See if it hits player2
-        if (!collider.gameObject.CompareTag("Player") && !collider.gameObject.CompareTag("Platform") && !collider.gameObject.CompareTag("Untagged") && !collider.gameObject.CompareTag("Abililty") && !collider.gameObject.CompareTag("Border"))
+        if (!collider.gameObject.CompareTag("Player") && !collider.gameObject.CompareTag("Platform") && !collider.gameObject.CompareTag("Untagged") && !collider.gameObject.CompareTag("Ability") && !collider.gameObject.CompareTag("Border"))
         {
             if (dealtDamage == false)
             {

@@ -32,6 +32,8 @@ public class AbilitiesFireWizard : MonoBehaviour
         offCooldownFireball = true;
         offCooldownFirering = true;
         offCooldownFireNuke = true;
+
+        FireRing.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
