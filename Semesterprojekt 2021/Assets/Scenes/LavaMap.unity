@@ -618,11 +618,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8806692886183548925, guid: 64660654b9d85ed4da44f1a749f9222c, type: 3}
   m_PrefabInstance: {fileID: 1463984023}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &417307229 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5815867618687102211, guid: 64660654b9d85ed4da44f1a749f9222c, type: 3}
-  m_PrefabInstance: {fileID: 1463984023}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &538607067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,32 +1096,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 124458248138048393, guid: 789739477348fce44bedf1091808ff0c, type: 3}
   m_PrefabInstance: {fileID: 1505478011}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &1127250991
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127250982}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &1253124491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,10 +1569,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1060902478420909706, guid: 64660654b9d85ed4da44f1a749f9222c, type: 3}
-      propertyPath: FireRing
-      value: 
-      objectReference: {fileID: 417307229}
     - target: {fileID: 5255853716767549963, guid: 64660654b9d85ed4da44f1a749f9222c, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1652,8 +1617,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireWizard
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6838777623864351812, guid: 64660654b9d85ed4da44f1a749f9222c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64660654b9d85ed4da44f1a749f9222c, type: 3}
 --- !u!1001 &1505478011
 PrefabInstance:
@@ -1665,22 +1629,6 @@ PrefabInstance:
     - target: {fileID: 124458248138048393, guid: 789739477348fce44bedf1091808ff0c, type: 3}
       propertyPath: m_Name
       value: IceWizard
-      objectReference: {fileID: 0}
-    - target: {fileID: 687740900950720281, guid: 789739477348fce44bedf1091808ff0c, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 687740900950720283, guid: 789739477348fce44bedf1091808ff0c, type: 3}
-      propertyPath: m_Size.x
-      value: 0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 687740900950720283, guid: 789739477348fce44bedf1091808ff0c, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 687740900950720283, guid: 789739477348fce44bedf1091808ff0c, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.455
       objectReference: {fileID: 0}
     - target: {fileID: 3710132117411495551, guid: 789739477348fce44bedf1091808ff0c, type: 3}
       propertyPath: m_RootOrder
@@ -1725,10 +1673,6 @@ PrefabInstance:
     - target: {fileID: 3710132117411495551, guid: 789739477348fce44bedf1091808ff0c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5208645162767725862, guid: 789739477348fce44bedf1091808ff0c, type: 3}
-      propertyPath: cooldownTimeIceBeam
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 789739477348fce44bedf1091808ff0c, type: 3}

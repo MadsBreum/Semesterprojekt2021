@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireRing : MonoBehaviour
+public class Firering : MonoBehaviour
 {
     public float timeActive = 1f;
     public float damage = 30f;

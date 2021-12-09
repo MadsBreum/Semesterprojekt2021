@@ -7,24 +7,28 @@ public class IceBeam : MonoBehaviour
     public float stunTime = 2.5f;
     public float damage = 40f;
     public float timeActive = 1.5f;
+    public float timeChargeUp = 0.5f;
 
     public bool dealtDamage;
 
+    public BoxCollider2D bc2d;
+
     // Start is called before the first frame update
+
     void OnEnable()
     {
         dealtDamage = false;
         StartCoroutine("IceBeamActiveTime");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     IEnumerator IceBeamActiveTime()
     {
+        bc2d.enabled = false;
+
+        yield return new WaitForSeconds(timeChargeUp);
+
+        bc2d.enabled = true;
+
         yield return new WaitForSeconds(timeActive);
 
         gameObject.SetActive(false);

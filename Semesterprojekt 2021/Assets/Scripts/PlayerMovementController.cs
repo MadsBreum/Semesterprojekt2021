@@ -29,6 +29,9 @@ public class PlayerMovementController : MonoBehaviour
     {
         currentVel = maxVel;
         currentJump = jump;
+
+        Rb.drag = 6;
+        Rb.gravityScale = 6;
     }
 
     void Start()
@@ -139,16 +142,21 @@ public class PlayerMovementController : MonoBehaviour
     {
         currentVel = maxVel * slowDown;
         currentJump = jump * slowDown;
-        Rb.drag = 3;
-        Rb.gravityScale = 3;
+
+        Rb.drag *= slowDown;
+        Rb.gravityScale *= slowDown;
+
+        //Rb.velocity *= slowDown;
       //  Debug.Log("Slowed for " + slowDownTime + " seconds");
 
         yield return new WaitForSeconds(slowDownTime);
 
         currentVel = maxVel;
         currentJump = jump;
+
         Rb.drag = 6;
         Rb.gravityScale = 6;
+
        // Debug.Log("Not slowed anymore");
     }
 }

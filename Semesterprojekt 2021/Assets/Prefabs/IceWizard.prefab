@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 687740900950720287}
   - component: {fileID: 8445542008173415165}
   - component: {fileID: 5208645162767725862}
+  - component: {fileID: 1127250991}
   m_Layer: 0
   m_Name: IceWizard
   m_TagString: Player2
@@ -126,7 +127,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0100731775, y: -0.45037478}
+  m_Offset: {x: 0, y: -0.455}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -137,7 +138,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.62, y: 0.105731726}
+  m_Size: {x: 0.95, y: 0.105731726}
   m_EdgeRadius: 0
 --- !u!70 &687740900950720281
 CapsuleCollider2D:
@@ -146,7 +147,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124458248138048393}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -217,10 +218,36 @@ MonoBehaviour:
   timeBetweenAbilities: 0.5
   cooldownTimeIceShards: 1
   cooldownTimeIceSpikes: 2
-  cooldownTimeIceBeam: 2
+  cooldownTimeIceBeam: 3
   playerNumber: Player2
   canMove: 1
   canUseAbilities: 1
+--- !u!61 &1127250991
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124458248138048393}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &4079906145893655732
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,6 +438,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3710132117411495551}
     m_Modifications:
+    - target: {fileID: 2755904051509253358, guid: e86afa55b8d5a954ab0a9a99ec85d1a1, type: 3}
+      propertyPath: bc2d
+      value: 
+      objectReference: {fileID: 4516077666024277380}
     - target: {fileID: 6932342396996531662, guid: e86afa55b8d5a954ab0a9a99ec85d1a1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -475,29 +506,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6932342396996531662, guid: e86afa55b8d5a954ab0a9a99ec85d1a1, type: 3}
   m_PrefabInstance: {fileID: 4885255370622767460}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &524828740799631964
+--- !u!61 &4516077666024277380 stripped
 BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 9036399352770843872, guid: e86afa55b8d5a954ab0a9a99ec85d1a1, type: 3}
+  m_PrefabInstance: {fileID: 4885255370622767460}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2883457235570568186}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0

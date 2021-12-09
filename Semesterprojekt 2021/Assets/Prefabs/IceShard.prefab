@@ -136,6 +136,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 25
   damage: 10
-  impactForce: 15
+  impactForce: 10
   slowDownTime: 1
   rb: {fileID: 2079823847920573010}
