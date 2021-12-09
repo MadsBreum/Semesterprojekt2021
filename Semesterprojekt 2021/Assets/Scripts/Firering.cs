@@ -7,6 +7,7 @@ public class Firering : MonoBehaviour
     public float timeActive = 1f;
     public float damage = 30f;
     public float impactForce = 50f;
+
     bool dealtDamage;
 
     private void OnEnable()

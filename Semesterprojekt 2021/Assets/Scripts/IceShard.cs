@@ -10,11 +10,14 @@ public class IceShard : MonoBehaviour
     //public float slowDown = 0.5f;
     public float slowDownTime = 1f;
 
+    bool dealtDamage;
+
     public Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
+        dealtDamage = false;
         rb.velocity = transform.right * speed;
     }
 
@@ -34,17 +37,21 @@ public class IceShard : MonoBehaviour
         // See if it hits player2
         if (!collider.gameObject.CompareTag("Player2") && !collider.gameObject.CompareTag("Platform") && !collider.gameObject.CompareTag("Untagged") && !collider.gameObject.CompareTag("Ability") && !collider.gameObject.CompareTag("Border"))
         {
-           // Debug.Log("IceShard hit " + collider.tag);
-            // Find the PlayerHealth component and apply damage
-            collider.GetComponent<PlayerHealth>().TakeDamage(damage);
+            if (dealtDamage == false)
+            {
+                // Debug.Log("IceShard hit " + collider.tag);
+                // Find the PlayerHealth component and apply damage
+                collider.GetComponent<PlayerHealth>().TakeDamage(damage);
+                dealtDamage = true;
 
-            collider.GetComponent<PlayerMovementController>().StartCoroutine("Slowdown", slowDownTime);
+                collider.GetComponent<PlayerMovementController>().StartCoroutine("Slowdown", slowDownTime);
 
-            Rigidbody2D targetRigidbody = collider.GetComponent<Rigidbody2D>();
+                Rigidbody2D targetRigidbody = collider.GetComponent<Rigidbody2D>();
 
-            targetRigidbody.AddForce(transform.right * impactForce, ForceMode2D.Impulse);
+                targetRigidbody.AddForce(transform.right * impactForce, ForceMode2D.Impulse);
 
-            Destroy(gameObject);
+                Destroy(gameObject);
+            }  
         }
     }
 }
