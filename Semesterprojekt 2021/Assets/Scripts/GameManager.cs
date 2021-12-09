@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public GameObject Player1;
     public GameObject Player2;
     public float Score = 0.0f;
+    private int p1Score = 0;
+    private int p2Score = 0;
     public Text w_Text;
     public Text s_Text;
     public GameObject wText;
@@ -60,6 +62,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Player2: "+Player2.activeInHierarchy);
             if (!winner)
             {
+                p1Score++;
                 Score = Score + 1.0f;
             }
             Respawn();
@@ -70,6 +73,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Player2: " + Player2.activeInHierarchy);
             if (!winner)
             {
+                p2Score++;
                 Score = Score + 0.1f;
             }
             Respawn();
@@ -137,13 +141,13 @@ public class GameManager : MonoBehaviour
         UltimatePoint1.transform.GetChild(0).gameObject.SetActive(enabled);
         UltimatePoint2.transform.GetChild(0).gameObject.SetActive(enabled);
         UltimatePoint3.transform.GetChild(0).gameObject.SetActive(enabled);
-        if (Score == 0.3f || Score == 1.3f || Score == 2.3f)
+        if (p2Score == 3)
         {
             w_Text.text = "Player2 WINS!";
             wText.SetActive(enabled);
             winner = true;
         }
-        if (Score == 3.0f || Score == 3.1f || Score == 3.2f)
+        if (p1Score == 3)
         {
             w_Text.text = "Player1 WINS!";
             wText.SetActive(enabled);

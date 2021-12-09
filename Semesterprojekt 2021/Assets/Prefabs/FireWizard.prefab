@@ -253,6 +253,7 @@ MonoBehaviour:
   p_StartingHealth: 100
   playerNumber: Player
   p_CurrentHealth: 0
+  p_UltimatePoint: 0
   canUseAbility: 1
 --- !u!114 &1060902478420909706
 MonoBehaviour:
