@@ -10,6 +10,8 @@ public class PlayerHealth : MonoBehaviour
 
     public float p_CurrentHealth;
 
+    public int p_UltimatePoint;
+
     public bool canUseAbility = true;
 
     private void OnEnable()
@@ -33,6 +35,20 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("UltimatePoint"))
+        {
+            collision.gameObject.SetActive(false);
+            if(p_UltimatePoint < 2)
+            {
+                p_UltimatePoint++;
+            }
+            Debug.Log("UltimatePoint: " + p_UltimatePoint);
+        }
+        
+    }
+
     void OnDeath()
     {
         // turn off the GameObject
@@ -40,5 +56,10 @@ public class PlayerHealth : MonoBehaviour
         gameObject.SetActive(false);
 
         Debug.Log(gameObject.name + " died");
+    }
+
+    public void OnUseUltimate()
+    {
+        p_UltimatePoint = 0;
     }
 }

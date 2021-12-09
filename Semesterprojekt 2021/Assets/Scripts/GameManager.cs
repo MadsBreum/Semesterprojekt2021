@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public GameObject wText;
     public Text p1Health;
     public Text p2Health;
+    public Text p1Ult;
+    public Text p2Ult;
     public Slider p1HealthSlider;
     public Slider p2HealthSlider;
     private float pauseTimer = 3f;
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ability = GameObject.FindGameObjectsWithTag("Ability");
+        s_Text.text = "" + Score.ToString("0.0");
         Player1.transform.position = RespawnPoint1.transform.position;
         Player1.SetActive(enabled);
         Player2.transform.position = RespawnPoint2.transform.position;
@@ -72,8 +75,21 @@ public class GameManager : MonoBehaviour
             }
             Respawn();
         }
-
-        s_Text.text = "" + Score.ToString("0.0");
+        if(Player1.GetComponent<PlayerHealth>().p_UltimatePoint == 2)
+        {
+            p1Ult.text = "Ult: READY!";
+        } else if(Player1.GetComponent<PlayerHealth>().p_UltimatePoint < 2)
+        {
+            p1Ult.text = "Ult: Not ready";
+        }
+        if (Player2.GetComponent<PlayerHealth>().p_UltimatePoint == 2)
+        {
+            p2Ult.text = "Ult: READY!";
+        }
+        else if (Player2.GetComponent<PlayerHealth>().p_UltimatePoint < 2)
+        {
+            p2Ult.text = "Ult: Not ready";
+        }
         p1Health.text = ""+Player1.GetComponent<PlayerHealth>().p_CurrentHealth;
         p2Health.text = ""+Player2.GetComponent<PlayerHealth>().p_CurrentHealth;
         p1HealthSlider.value = Player1.GetComponent<PlayerHealth>().p_CurrentHealth / 100;
@@ -118,6 +134,9 @@ public class GameManager : MonoBehaviour
         Player1.SetActive(false);
         Player2.SetActive(enabled);
         Player1.SetActive(enabled);
+        UltimatePoint1.transform.GetChild(0).gameObject.SetActive(enabled);
+        UltimatePoint2.transform.GetChild(0).gameObject.SetActive(enabled);
+        UltimatePoint3.transform.GetChild(0).gameObject.SetActive(enabled);
         if (Score == 0.3f || Score == 1.3f || Score == 2.3f)
         {
             w_Text.text = "Player2 WINS!";
