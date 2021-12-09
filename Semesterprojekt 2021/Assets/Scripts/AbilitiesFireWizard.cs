@@ -18,16 +18,20 @@ public class AbilitiesFireWizard : MonoBehaviour
     public string playerNumber;
 
     public bool canMove = true;
-    public bool canUseAbility = true;
+    public bool canUseAbility;
 
-    bool offCooldownFireball = true;
-    bool offCooldownFirering = true;
-    bool offCooldownFireNuke = true;
+    bool offCooldownFireball;
+    bool offCooldownFirering;
+    bool offCooldownFireNuke;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        
+        canUseAbility = true;
+
+        offCooldownFireball = true;
+        offCooldownFirering = true;
+        offCooldownFireNuke = true;
     }
 
     // Update is called once per frame

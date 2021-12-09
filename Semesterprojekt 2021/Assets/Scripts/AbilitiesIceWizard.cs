@@ -21,16 +21,20 @@ public class AbilitiesIceWizard : MonoBehaviour
     public string playerNumber;
 
     public bool canMove = true;
-    public bool canUseAbilities = true;
+    public bool canUseAbilities;
 
-    bool offCooldownIceShards = true;
-    bool offCooldownIceSpikes = true;
-    bool offCooldownIceBeam = true;
+    bool offCooldownIceShards;
+    bool offCooldownIceSpikes;
+    bool offCooldownIceBeam;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        
+        canUseAbilities = true;
+
+        offCooldownIceShards = true;
+        offCooldownIceSpikes = true;
+        offCooldownIceBeam = true;
     }
 
     // Update is called once per frame

@@ -119,9 +119,7 @@ public class GameManager : MonoBehaviour
         StartTimerO.SetActive(enabled);
         timerIsRunning = true;
         Player1.GetComponent<PlayerMovementController>().StartCoroutine("Stunned", pauseTimer);
-        Player1.GetComponent<PlayerHealth>().StartCoroutine("Stunned", pauseTimer);
         Player2.GetComponent<PlayerMovementController>().StartCoroutine("Stunned", pauseTimer);
-        Player2.GetComponent<PlayerHealth>().StartCoroutine("Stunned", pauseTimer);
     }
 
 }
