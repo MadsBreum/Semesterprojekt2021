@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8157128799334341083}
   m_Layer: 0
   m_Name: FireNuke
-  m_TagString: Untagged
+  m_TagString: Ability
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,5 +135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  playerNumber: Player1
   rb: {fileID: 9170445176231856623}
   Nuke: {fileID: 8590490523179661083, guid: bac425b1868dad44f9bfab9d867ecc3a, type: 3}

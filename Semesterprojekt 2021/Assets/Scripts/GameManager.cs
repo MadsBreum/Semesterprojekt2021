@@ -25,10 +25,12 @@ public class GameManager : MonoBehaviour
     public GameObject StartTimerO;
     bool timerIsRunning = false;
     bool winner = false;
+    GameObject[] ability;
 
     // Start is called before the first frame update
     void Start()
     {
+        ability = GameObject.FindGameObjectsWithTag("Ability");
         Player1.transform.position = RespawnPoint1.transform.position;
         Player1.SetActive(enabled);
         Player2.transform.position = RespawnPoint2.transform.position;
@@ -89,6 +91,11 @@ public class GameManager : MonoBehaviour
 
     void Respawn()
     {
+        ability = GameObject.FindGameObjectsWithTag("Ability");
+        foreach (GameObject a in ability)
+        {
+            a.SetActive(false);
+        }
         Player2.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         Player1.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         Player2.transform.position = RespawnPoint2.transform.position;
@@ -111,6 +118,7 @@ public class GameManager : MonoBehaviour
         {
             RoundPauser();
         }
+
     }
     void RoundPauser()
     {

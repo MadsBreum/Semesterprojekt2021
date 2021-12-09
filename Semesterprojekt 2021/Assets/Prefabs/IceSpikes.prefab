@@ -122,7 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b130d7ef6fa7ba498e422995eecbf9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunTime: 2
 --- !u!1 &2183090613707358784
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,7 +244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b130d7ef6fa7ba498e422995eecbf9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunTime: 2
 --- !u!1 &2183090613931556778
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +366,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b130d7ef6fa7ba498e422995eecbf9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunTime: 2
 --- !u!1 &2183090614487821765
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +488,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b130d7ef6fa7ba498e422995eecbf9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunTime: 2
 --- !u!1 &2183090614552832732
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,7 +501,7 @@ GameObject:
   - component: {fileID: 1307977064}
   m_Layer: 0
   m_Name: IceSpikes
-  m_TagString: Untagged
+  m_TagString: Ability
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -595,5 +591,6 @@ MonoBehaviour:
   spikeSizeX: 1.5
   timeTillDestroy: 2
   timeBetweenSpikes: 0.1
+  stunTime: 1
   damage: 20
   dealtDamage: 0
