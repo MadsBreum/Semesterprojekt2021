@@ -12,7 +12,7 @@ public class FireRing : MonoBehaviour
     private void OnEnable()
     {
         dealtDamage = false;
-        StartCoroutine("FireringActiveTime");
+        StartCoroutine("FireRingActiveTime");
     }
     // Start is called before the first frame update
     void Start()
@@ -49,7 +49,7 @@ public class FireRing : MonoBehaviour
         }
     }
     
-    IEnumerator FireringActiveTime()
+    IEnumerator FireRingActiveTime()
     {
         yield return new WaitForSeconds(timeActive);
 
