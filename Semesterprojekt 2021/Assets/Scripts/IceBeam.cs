@@ -37,7 +37,7 @@ public class IceBeam : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         // See if it hits player2
-        if (!collider.gameObject.CompareTag("Player2") && !collider.gameObject.CompareTag("Platform") && !collider.gameObject.CompareTag("Untagged") && !collider.gameObject.CompareTag("Ability") && !collider.gameObject.CompareTag("Border"))
+        if (!collider.gameObject.CompareTag("Player2") && !collider.gameObject.CompareTag("Platform") && !collider.gameObject.CompareTag("Untagged") && !collider.gameObject.CompareTag("Ability") && !collider.gameObject.CompareTag("Border") && !collider.gameObject.CompareTag("UltimatePoint"))
         {
             if (dealtDamage == false)
             {
