@@ -33,7 +33,7 @@ public class FireRing : MonoBehaviour
         {
             if (dealtDamage == false)
             {
-                Debug.Log("Projectile hit " + collider.name);
+                //Debug.Log("Projectile hit " + collider.name);
                 // Find the PlayerHealth component and apply damage
                 collider.GetComponent<PlayerHealth>().TakeDamage(damage);
 

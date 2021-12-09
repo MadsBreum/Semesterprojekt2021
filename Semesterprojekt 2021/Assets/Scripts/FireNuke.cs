@@ -35,7 +35,7 @@ public class FireNuke : MonoBehaviour
         // See if it hits the border and destroy it if it does
         if (collider.gameObject.CompareTag("Border"))
         {
-            Debug.Log("Projectile hit " + collider.name);
+            //Debug.Log("Projectile hit " + collider.name);
             
             Destroy(gameObject);
         }

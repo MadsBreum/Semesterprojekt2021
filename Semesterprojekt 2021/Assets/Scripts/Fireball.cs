@@ -34,7 +34,7 @@ public class Fireball : MonoBehaviour
         // See if it hits player2
         if (!collider.gameObject.CompareTag("Player") && !collider.gameObject.CompareTag("Platform") && !collider.gameObject.CompareTag("Untagged") && !collider.gameObject.CompareTag("Ability") && !collider.gameObject.CompareTag("Border"))
         {
-            Debug.Log("Projectile hit " + collider.name);
+            //Debug.Log("Projectile hit " + collider.name);
             // Find the PlayerHealth component and apply damage
             collider.GetComponent<PlayerHealth>().TakeDamage(damage);
 

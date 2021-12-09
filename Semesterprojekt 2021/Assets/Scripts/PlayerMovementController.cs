@@ -127,12 +127,12 @@ public class PlayerMovementController : MonoBehaviour
     public IEnumerator Stunned(float stunTime)
     {
         canMove = false;
-        Debug.Log("Stunned for " + stunTime + " seconds");
+        //Debug.Log("Stunned for " + stunTime + " seconds");
 
         yield return new WaitForSeconds(stunTime);
 
         canMove = true;
-        Debug.Log("Not stunned anymore");
+        //Debug.Log("Not stunned anymore");
     }
 
     public IEnumerator Slowdown(float slowDownTime)
@@ -141,7 +141,7 @@ public class PlayerMovementController : MonoBehaviour
         currentJump = jump * slowDown;
         Rb.drag = 3;
         Rb.gravityScale = 3;
-        Debug.Log("Slowed for " + slowDownTime + " seconds");
+      //  Debug.Log("Slowed for " + slowDownTime + " seconds");
 
         yield return new WaitForSeconds(slowDownTime);
 
@@ -149,6 +149,6 @@ public class PlayerMovementController : MonoBehaviour
         currentJump = jump;
         Rb.drag = 6;
         Rb.gravityScale = 6;
-        Debug.Log("Not slowed anymore");
+       // Debug.Log("Not slowed anymore");
     }
 }

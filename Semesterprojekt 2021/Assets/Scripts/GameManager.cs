@@ -42,8 +42,20 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!Player2.activeSelf && !Player1.activeSelf)
+        {
+            Respawn();
+            if (!winner)
+            {
+            w_Text.text = "Draw";
+            wText.SetActive(enabled);
+            }
+
+        }
         if(!Player2.activeSelf)
         {
+            Debug.Log("Player1: "+Player1.activeInHierarchy);
+            Debug.Log("Player2: "+Player2.activeInHierarchy);
             if (!winner)
             {
                 Score = Score + 1.0f;
@@ -51,15 +63,17 @@ public class GameManager : MonoBehaviour
             Respawn();
         }
        if (!Player1.activeSelf)
-        {
+       {
+            Debug.Log("Player1: " + Player1.activeInHierarchy);
+            Debug.Log("Player2: " + Player2.activeInHierarchy);
             if (!winner)
             {
                 Score = Score + 0.1f;
             }
             Respawn();
         }
-  
-        s_Text.text = ""+Score.ToString("0.0");
+
+        s_Text.text = "" + Score.ToString("0.0");
         p1Health.text = ""+Player1.GetComponent<PlayerHealth>().p_CurrentHealth;
         p2Health.text = ""+Player2.GetComponent<PlayerHealth>().p_CurrentHealth;
         p1HealthSlider.value = Player1.GetComponent<PlayerHealth>().p_CurrentHealth / 100;
@@ -75,11 +89,11 @@ public class GameManager : MonoBehaviour
             {
                 pauseTimer -= Time.deltaTime;
                 StartTimerText.text = "GO!";
-
+                wText.SetActive(false);
             }
             else
             { 
-                Debug.Log("Time has run out!");
+                //Debug.Log("Time has run out!");
                 timerIsRunning = false;
                 StartTimerO.SetActive(false);
                 pauseTimer = 3f;
@@ -100,6 +114,8 @@ public class GameManager : MonoBehaviour
         Player1.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         Player2.transform.position = RespawnPoint2.transform.position;
         Player1.transform.position = RespawnPoint1.transform.position;
+        Player2.SetActive(false);
+        Player1.SetActive(false);
         Player2.SetActive(enabled);
         Player1.SetActive(enabled);
         if (Score == 0.3f || Score == 1.3f || Score == 2.3f)
@@ -122,8 +138,6 @@ public class GameManager : MonoBehaviour
     }
     void RoundPauser()
     {
-        //Debug.Log(Player1.activeInHierarchy);
-        //Debug.Log(Player2.activeInHierarchy);
         StartTimerO.SetActive(enabled);
         timerIsRunning = true;
         Player1.GetComponent<PlayerMovementController>().StartCoroutine("Stunned", pauseTimer);

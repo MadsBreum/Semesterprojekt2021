@@ -37,7 +37,7 @@ public class IceBeam : MonoBehaviour
         {
             if (dealtDamage == false)
             {
-                Debug.Log("IceSpikes hit " + collider.name);
+                //Debug.Log("IceSpikes hit " + collider.name);
                 // Find the PlayerHealth component and apply damage
                 collider.GetComponent<PlayerHealth>().TakeDamage(damage);
                 dealtDamage = true;

@@ -17,14 +17,14 @@ public class PlayerHealth : MonoBehaviour
         // When the player is enabled, reset the player's health and set dead to false
         p_CurrentHealth = p_StartingHealth;
 
-        Debug.Log(gameObject.name + "'s starting health is " + p_StartingHealth);
+        //Debug.Log(gameObject.name + "'s starting health is " + p_StartingHealth);
     }
 
     public void TakeDamage(float damage)
     {
         // Subtract damage from current health
         p_CurrentHealth -= damage;
-        Debug.Log(gameObject.name + " lost " + damage + " health!");
+        //Debug.Log(gameObject.name + " lost " + damage + " health!");
 
         // If current health goes to zero or below, run OnDeath
         if (p_CurrentHealth <= 0)

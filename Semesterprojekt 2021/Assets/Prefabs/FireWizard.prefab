@@ -95,7 +95,7 @@ Transform:
   m_LocalPosition: {x: -10.1, y: -2.6, z: -1}
   m_LocalScale: {x: 1, y: 1.4814352, z: 1}
   m_Children:
-  - {fileID: 7146507325795393394}
+  - {fileID: 5815867618687102208}
   - {fileID: 1060902477003815368}
   - {fileID: 1060902478168729114}
   m_Father: {fileID: 0}
@@ -270,7 +270,7 @@ MonoBehaviour:
   firePoint2: {fileID: 1060902478168729114}
   Fireball: {fileID: 6444768389461225142, guid: 2617074a9e98ca047be1694866e3bf23, type: 3}
   FireNuke: {fileID: 9170445176231856608, guid: 8f353e207d4b7364b938eecc2b15d78a, type: 3}
-  FireRing: {fileID: 7146507325795393393}
+  FireRing: {fileID: 0}
   timeBetweenAbilities: 0.5
   cooldownTimeFireball: 1
   cooldownTimeFirering: 2
@@ -304,7 +304,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1001 &1184756381598390152
+--- !u!1001 &2588017152858842618
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -361,13 +361,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
---- !u!1 &7146507325795393393 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8312632444122450169, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
-  m_PrefabInstance: {fileID: 1184756381598390152}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7146507325795393394 stripped
+--- !u!4 &5815867618687102208 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
-  m_PrefabInstance: {fileID: 1184756381598390152}
+  m_PrefabInstance: {fileID: 2588017152858842618}
   m_PrefabAsset: {fileID: 0}

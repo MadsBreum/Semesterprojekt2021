@@ -93,12 +93,12 @@ public class AbilitiesIceWizard : MonoBehaviour
         Instantiate(IceShard, iceProjectile3.position, iceProjectile3.rotation);
         // Put it on cooldown
         offCooldownIceShards = false;
-        Debug.Log("IceShards on cooldown");
+       // Debug.Log("IceShards on cooldown");
 
         yield return new WaitForSeconds(cooldownTimeIceShards);
         // Put it off cooldown
         offCooldownIceShards = true;
-        Debug.Log("IceShards off cooldown");
+       // Debug.Log("IceShards off cooldown");
     }
     
     IEnumerator UseIceSpikes()
