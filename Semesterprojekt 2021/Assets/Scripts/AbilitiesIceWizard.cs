@@ -65,11 +65,12 @@ public class AbilitiesIceWizard : MonoBehaviour
             }
 
             // If the ability key is pressed once, check if it's off cooldown
-            else if (Input.GetButtonDown(playerNumber + "Ability3") && offCooldownIceBeam)
+            else if (Input.GetButtonDown(playerNumber + "Ability3") && offCooldownIceBeam && GetComponent<PlayerHealth>().p_UltimatePoint == 2)
             {
                 // Use the ability
                 StartCoroutine("TimeBetweenAbilities");
                 StartCoroutine("UseIceBeam");
+                GetComponent<PlayerHealth>().OnUseUltimate();
             }
         }
     }

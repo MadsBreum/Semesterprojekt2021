@@ -43,6 +43,7 @@ public class AbilitiesFireWizard : MonoBehaviour
 
         bool touchingGround = GetComponent<PlayerMovementController>().touchingGround;
 
+
         if (canMove && canUseAbility)
         {/*
             // If the ability key is pressed once, check if it's off cooldown
@@ -67,11 +68,12 @@ public class AbilitiesFireWizard : MonoBehaviour
                 StartCoroutine("UseFirering");
             }
             // If the ability key is pressed once, check if it's off cooldown and if the player is touching the ground
-            else if (Input.GetButtonDown(playerNumber + "Ability3") && offCooldownFireNuke)
+            else if (Input.GetButtonDown(playerNumber + "Ability3") && offCooldownFireNuke && GetComponent<PlayerHealth>().p_UltimatePoint == 2)
             {
                 // Use the ability
                 StartCoroutine("TimeBetweenAbilities");
                 StartCoroutine("UseFireNuke");
+                GetComponent<PlayerHealth>().OnUseUltimate();
             }
 
             /*
