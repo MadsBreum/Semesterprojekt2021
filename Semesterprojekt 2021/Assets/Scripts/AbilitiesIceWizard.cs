@@ -10,17 +10,22 @@ public class AbilitiesIceWizard : MonoBehaviour
     public Transform iceProjectile2;
     public Transform iceProjectile3;
     public GameObject IceShard;
-    //public GameObject FireNuke;
     public GameObject IceSpikes;
+    public GameObject IceBeam;
 
+    public float timeBetweenAbilities = 0.5f;
     public float cooldownTimeIceShards = 1;
     public float cooldownTimeIceSpikes = 2;
+    public float cooldownTimeIceBeam = 2;
 
-    public string playerNumber = "Player1";
+    public string playerNumber;
 
-    public bool canUseAbility = true;
+    public bool canMove = true;
+    public bool canUseAbilities = true;
+
     bool offCooldownIceShards = true;
     bool offCooldownIceSpikes = true;
+    bool offCooldownIceBeam = true;
 
     // Start is called before the first frame update
     void Start()
@@ -31,24 +36,45 @@ public class AbilitiesIceWizard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        canMove = GetComponent<PlayerMovementController>().canMove;
+
         bool touchingGround = GetComponent<PlayerMovementController>().touchingGround;
 
-        if (canUseAbility)
+        if (canMove && canUseAbilities)
         {
             // If the ability key is pressed once, check if it's off cooldown
             if (Input.GetButtonDown(playerNumber + "Ability1") && offCooldownIceShards)
             {
                 // Use the ability
+                StartCoroutine("TimeBetweenAbilities");
                 StartCoroutine("UseIceShards");
             }
 
             // If the ability key is pressed once, check if it's off cooldown and if the player is touching the ground
-            if (Input.GetButtonDown(playerNumber + "Ability2") && offCooldownIceSpikes && touchingGround)
+            else if (Input.GetButtonDown(playerNumber + "Ability2") && offCooldownIceSpikes && touchingGround)
             {
                 // Use the ability
+                StartCoroutine("TimeBetweenAbilities");
                 StartCoroutine("UseIceSpikes");
             }
+
+            // If the ability key is pressed once, check if it's off cooldown
+            else if (Input.GetButtonDown(playerNumber + "Ability3") && offCooldownIceBeam)
+            {
+                // Use the ability
+                StartCoroutine("TimeBetweenAbilities");
+                StartCoroutine("UseIceBeam");
+            }
         }
+    }
+
+    IEnumerator TimeBetweenAbilities()
+    {
+        canUseAbilities = false;
+
+        yield return new WaitForSeconds(timeBetweenAbilities);
+
+        canUseAbilities = true;
     }
 
     IEnumerator UseIceShards()
@@ -81,15 +107,17 @@ public class AbilitiesIceWizard : MonoBehaviour
         offCooldownIceSpikes = true;
         Debug.Log("IceSpikes off cooldown");
     }
-    
-    public IEnumerator Stunned(float stunTime)
+
+    IEnumerator UseIceBeam()
     {
-        canUseAbility = false;
-        Debug.Log("Stunned for " + stunTime + " seconds");
+        IceBeam.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(stunTime);
+        offCooldownIceBeam = false;
+        Debug.Log("IceBeam on cooldown");
 
-        canUseAbility = true;
-        Debug.Log("Not stunned anymore");
+        yield return new WaitForSeconds(cooldownTimeIceBeam);
+
+        offCooldownIceBeam = true;
+        Debug.Log("IceBeam off cooldown");
     }
 }

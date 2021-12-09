@@ -6,20 +6,23 @@ public class FireNuke : MonoBehaviour
 {
     public float speed = 10f;
 
+    public string playerNumber;
+
     public Rigidbody2D rb;
     public GameObject Nuke;
-    //public Transform ExplosionPoint;
 
     // Start is called before the first frame update
     void Start()
     {
         rb.velocity = transform.right * speed;
+
+        //playerNumber = GetComponent<AbilitiesFireWizard>().playerNumber;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Minus))
+        if (Input.GetButtonDown(playerNumber + "Ability3"))
         {
             //Instantiate(Nuke, ExplosionPoint.position, ExplosionPoint.rotation);
             Instantiate(Nuke, gameObject.transform.position, gameObject.transform.rotation);

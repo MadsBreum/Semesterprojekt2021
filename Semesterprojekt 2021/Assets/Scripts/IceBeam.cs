@@ -2,20 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikesDamage : MonoBehaviour
+public class IceBeam : MonoBehaviour
 {
-    float damage;
-    float stunTime;
+    public float stunTime = 2.5f;
+    public float damage = 40f;
+    public float timeActive = 1.5f;
 
-    //bool dealtDamage;
+    public bool dealtDamage;
 
     // Start is called before the first frame update
-    void Awake()
+    void OnEnable()
     {
-        // Get the damage amount from the parent
-        damage = GetComponentInParent<IceSpikes>().damage;
-
-        stunTime = GetComponentInParent<IceSpikes>().stunTime;
+        dealtDamage = false;
+        StartCoroutine("IceBeamActiveTime");
     }
 
     // Update is called once per frame
@@ -23,12 +22,16 @@ public class SpikesDamage : MonoBehaviour
     {
         
     }
-    
+
+    IEnumerator IceBeamActiveTime()
+    {
+        yield return new WaitForSeconds(timeActive);
+
+        gameObject.SetActive(false);
+    }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        // Get the dealtDamage bool from parent
-        bool dealtDamage = GetComponentInParent<IceSpikes>().dealtDamage;
-
         // See if it hits player2
         if (!collider.gameObject.CompareTag("Player2") && !collider.gameObject.CompareTag("Platform"))
         {
@@ -37,10 +40,9 @@ public class SpikesDamage : MonoBehaviour
                 Debug.Log("IceSpikes hit " + collider.name);
                 // Find the PlayerHealth component and apply damage
                 collider.GetComponent<PlayerHealth>().TakeDamage(damage);
+                dealtDamage = true;
 
                 collider.GetComponent<PlayerMovementController>().StartCoroutine("Stunned", stunTime);
-
-                GetComponentInParent<IceSpikes>().DealtDamage();
             }
         }
     }

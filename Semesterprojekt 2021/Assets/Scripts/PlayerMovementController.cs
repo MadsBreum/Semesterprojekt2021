@@ -16,8 +16,14 @@ public class PlayerMovementController : MonoBehaviour
     public float speed = 60;
     public float slowDown = 0.5f;
 
+    float moveInput = 0;
+    float jumpInput = 0;
+
     bool movingRight = true;
+
     public bool canMove = true;
+
+    public string playerNumber;
 
     private void OnEnable()
     {
@@ -35,9 +41,13 @@ public class PlayerMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        moveInput = Input.GetAxisRaw(playerNumber + "Horizontal");
+
+        jumpInput = Input.GetAxisRaw(playerNumber + "Vertical");
+
         if (canMove == true)
         {
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (moveInput == 1)
             {
                 if (movingRight == false)
                 {
@@ -46,7 +56,7 @@ public class PlayerMovementController : MonoBehaviour
                 movingRight = true;
             }
 
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (moveInput == -1)
             {
                 if (movingRight == true)
                 {
@@ -61,10 +71,19 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (canMove == true)
         {
+            Rb.AddForce(Vector2.right * moveInput * speed);
+
+            if (jumpInput == 1 && touchingGround)
+            {
+                Rb.AddForce(transform.up * currentJump, ForceMode2D.Impulse);
+            }
+            /*
             if (Input.GetKey(KeyCode.UpArrow) && touchingGround)
             {
                 Rb.AddForce(transform.up * currentJump, ForceMode2D.Impulse);
             }
+            */
+            /*
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 Rb.AddForce(transform.right * speed);
@@ -73,6 +92,7 @@ public class PlayerMovementController : MonoBehaviour
             {
                 Rb.AddForce(transform.right * speed);
             }
+            */
             if (Rb.velocity.x > currentVel)
             {
                 Rb.velocity = new Vector2(currentVel, Rb.velocity.y);

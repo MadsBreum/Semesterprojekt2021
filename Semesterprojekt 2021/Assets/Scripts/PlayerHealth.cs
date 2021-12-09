@@ -10,6 +10,8 @@ public class PlayerHealth : MonoBehaviour
 
     public float p_CurrentHealth;
 
+    public bool canUseAbility = true;
+
     private void OnEnable()
     {
         // When the player is enabled, reset the player's health and set dead to false
@@ -39,5 +41,4 @@ public class PlayerHealth : MonoBehaviour
 
         Debug.Log(gameObject.name + " died");
     }
-
 }

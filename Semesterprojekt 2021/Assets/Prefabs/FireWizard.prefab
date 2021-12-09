@@ -28,7 +28,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.6750211, z: 1}
   m_Children: []
   m_Father: {fileID: 5255853716767549963}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1060902478168729113
 GameObject:
@@ -76,7 +76,6 @@ GameObject:
   - component: {fileID: 8216494467761335147}
   - component: {fileID: 1060902478420909705}
   - component: {fileID: 1060902478420909706}
-  - component: {fileID: 1060902477856157169}
   m_Layer: 0
   m_Name: FireWizard
   m_TagString: Player
@@ -95,8 +94,8 @@ Transform:
   m_LocalPosition: {x: -10.1, y: -2.6, z: -1}
   m_LocalScale: {x: 1, y: 1.4814352, z: 1}
   m_Children:
-  - {fileID: 1060902477003815368}
   - {fileID: 8216494469182636975}
+  - {fileID: 1060902477003815368}
   - {fileID: 1060902478168729114}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -231,9 +230,13 @@ MonoBehaviour:
   Bc: {fileID: 8216494467761335151}
   touchingGround: 0
   maxVel: 45
+  currentVel: 0
   jump: 20
+  currentJump: 0
   speed: 60
+  slowDown: 0.5
   canMove: 1
+  playerNumber: Player1
 --- !u!114 &1060902478420909705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +251,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   p_StartingHealth: 100
   playerNumber: Player
+  p_CurrentHealth: 0
+  canUseAbility: 1
 --- !u!114 &1060902478420909706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,26 +269,14 @@ MonoBehaviour:
   firePoint2: {fileID: 1060902478168729114}
   Fireball: {fileID: 6444768389461225142, guid: 2617074a9e98ca047be1694866e3bf23, type: 3}
   FireNuke: {fileID: 9170445176231856608, guid: 8f353e207d4b7364b938eecc2b15d78a, type: 3}
+  FireRing: {fileID: 8216494469182636972}
+  timeBetweenAbilities: 0.5
   cooldownTimeFireball: 1
   cooldownTimeFirering: 2
   cooldownTimeFireNuke: 3
-  playerNumber: Player2
+  playerNumber: Player1
+  canMove: 1
   canUseAbility: 1
---- !u!114 &1060902477856157169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8806692886183548925}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 149910f13aee1b847a6c8e89fc691b40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePoint: {fileID: 1060902477003815368}
-  Fireball: {fileID: 6444768389461225142, guid: 2617074a9e98ca047be1694866e3bf23, type: 3}
-  cooldownTime: 2
 --- !u!1001 &97598174249192277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -291,21 +284,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5255853716767549963}
     m_Modifications:
-    - target: {fileID: 8312632444122450148, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8312632444122450169, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
       propertyPath: m_Name
-      value: Firering
-      objectReference: {fileID: 0}
-    - target: {fileID: 8312632444122450169, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: FireRing
       objectReference: {fileID: 0}
     - target: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -347,8 +332,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5282251913302930194, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
 --- !u!1 &8216494469182636972 stripped
 GameObject:
@@ -360,18 +344,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8312632444122450170, guid: 29129684ee4aa8742816575f950d8ab8, type: 3}
   m_PrefabInstance: {fileID: 97598174249192277}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1060902478165026433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8216494469182636972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72d629d936df1f746b4900293fa707c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeActive: 1
-  damage: 30
-  impactForce: 25

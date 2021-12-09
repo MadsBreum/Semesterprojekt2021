@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         Player1.SetActive(enabled);
         Player2.transform.position = RespawnPoint2.transform.position;
         Player2.SetActive(enabled);
-        roundPauser();
+        RoundPauser();
 
     }
 
@@ -109,17 +109,19 @@ public class GameManager : MonoBehaviour
         }
         if (!winner)
         {
-            roundPauser();
+            RoundPauser();
         }
     }
-    void roundPauser()
+    void RoundPauser()
     {
+        //Debug.Log(Player1.activeInHierarchy);
+        //Debug.Log(Player2.activeInHierarchy);
         StartTimerO.SetActive(enabled);
         timerIsRunning = true;
         Player1.GetComponent<PlayerMovementController>().StartCoroutine("Stunned", pauseTimer);
-        Player1.GetComponent<UseAbility>().StartCoroutine("Stunned", pauseTimer);
+        Player1.GetComponent<PlayerHealth>().StartCoroutine("Stunned", pauseTimer);
         Player2.GetComponent<PlayerMovementController>().StartCoroutine("Stunned", pauseTimer);
-        //Player2.GetComponent<UseAbility>().StartCoroutine("Stunned", pauseTimer);
+        Player2.GetComponent<PlayerHealth>().StartCoroutine("Stunned", pauseTimer);
     }
 
 }

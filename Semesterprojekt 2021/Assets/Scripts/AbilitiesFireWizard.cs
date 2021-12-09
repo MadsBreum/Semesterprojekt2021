@@ -2,26 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UseAbility : MonoBehaviour
+public class AbilitiesFireWizard : MonoBehaviour
 {
     public Transform firePoint;
     public Transform firePoint2;
     public GameObject Fireball;
     public GameObject FireNuke;
-    //public GameObject IceSpikes;
+    public GameObject FireRing;
 
+    public float timeBetweenAbilities = 0.5f;
     public float cooldownTimeFireball = 1;
     public float cooldownTimeFirering = 2;
     public float cooldownTimeFireNuke = 3;
-    //public float cooldownTimeIceSpikes = 1;
 
-    public string playerNumber = "Player2";
+    public string playerNumber;
 
+    public bool canMove = true;
     public bool canUseAbility = true;
+
     bool offCooldownFireball = true;
     bool offCooldownFirering = true;
     bool offCooldownFireNuke = true;
-    //bool offCooldownIceSpikes = true;
 
     // Start is called before the first frame update
     void Start()
@@ -32,9 +33,11 @@ public class UseAbility : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        canMove = GetComponent<PlayerMovementController>().canMove;
+
         bool touchingGround = GetComponent<PlayerMovementController>().touchingGround;
 
-        if (canUseAbility)
+        if (canMove && canUseAbility)
         {/*
             // If the ability key is pressed once, check if it's off cooldown
             if (Input.GetKeyDown(KeyCode.Comma) && offCooldownFireball)
@@ -43,22 +46,26 @@ public class UseAbility : MonoBehaviour
                 StartCoroutine("UseFireball");
             }*/
             // If the ability key is pressed once, check if it's off cooldown
-            if (Input.GetKeyDown(KeyCode.Period) && offCooldownFirering)
-            {
-                // Use the ability
-                StartCoroutine("UseFirering");
-            }
-            // If the ability key is pressed once, check if it's off cooldown and if the player is touching the ground
-            if (Input.GetKeyDown(KeyCode.Minus) && offCooldownFireNuke)
-            {
-                // Use the ability
-                StartCoroutine("UseFireNuke");
-            }
 
             if (Input.GetButtonDown(playerNumber + "Ability1") && offCooldownFireball)
             {
                 // Use the ability
+                StartCoroutine("TimeBetweenAbilities");
                 StartCoroutine("UseFireball");
+            }
+
+            else if (Input.GetButtonDown(playerNumber + "Ability2") && offCooldownFirering)
+            {
+                // Use the ability
+                StartCoroutine("TimeBetweenAbilities");
+                StartCoroutine("UseFirering");
+            }
+            // If the ability key is pressed once, check if it's off cooldown and if the player is touching the ground
+            else if (Input.GetButtonDown(playerNumber + "Ability3") && offCooldownFireNuke)
+            {
+                // Use the ability
+                StartCoroutine("TimeBetweenAbilities");
+                StartCoroutine("UseFireNuke");
             }
 
             /*
@@ -70,6 +77,15 @@ public class UseAbility : MonoBehaviour
             }
             */
         }
+    }
+
+    IEnumerator TimeBetweenAbilities()
+    {
+        canUseAbility = false;
+
+        yield return new WaitForSeconds(timeBetweenAbilities);
+
+        canUseAbility = true;
     }
 
     IEnumerator UseFireball()
@@ -88,7 +104,7 @@ public class UseAbility : MonoBehaviour
 
     IEnumerator UseFirering()
     {
-        transform.GetChild(1).gameObject.SetActive(true);
+        FireRing.gameObject.SetActive(true);
 
         offCooldownFirering = false;
         Debug.Log("Firering on cooldown");
@@ -102,7 +118,10 @@ public class UseAbility : MonoBehaviour
     IEnumerator UseFireNuke()
     {
         // Instantiate fireball prefab in the direction the player is looking
+        FireNuke.GetComponent<FireNuke>().playerNumber = playerNumber;
         Instantiate(FireNuke, firePoint.position, firePoint.rotation);
+
+        //FireNuke.GetComponent<FireNuke>().playerNumber = playerNumber;
         // Put it on cooldown
         offCooldownFireNuke = false;
         Debug.Log("Fireball on cooldown");
@@ -112,20 +131,7 @@ public class UseAbility : MonoBehaviour
         offCooldownFireNuke = true;
         Debug.Log("Fireball off cooldown");
     }
-    /*
-    IEnumerator UseIceSpikes()
-    {
-        Instantiate(IceSpikes, firePoint2.position, firePoint2.rotation);
 
-        offCooldownIceSpikes = false;
-        Debug.Log("IceSpikes on cooldown");
-
-        yield return new WaitForSeconds(cooldownTimeIceSpikes);
-
-        offCooldownIceSpikes = true;
-        Debug.Log("IceSpikes off cooldown");
-    }
-    */
     public IEnumerator Stunned(float stunTime)
     {
         canUseAbility = false;
