@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ability = GameObject.FindGameObjectsWithTag("Ability");
-        s_Text.text = "" + Score.ToString("0.0");
         Player1.transform.position = RespawnPoint1.transform.position;
         Player1.SetActive(enabled);
         Player2.transform.position = RespawnPoint2.transform.position;
@@ -75,7 +74,7 @@ public class GameManager : MonoBehaviour
             }
             Respawn();
         }
-        if(Player1.GetComponent<PlayerHealth>().p_UltimatePoint == 2)
+        if (Player1.GetComponent<PlayerHealth>().p_UltimatePoint == 2)
         {
             p1Ult.text = "Ult: READY!";
         } else if(Player1.GetComponent<PlayerHealth>().p_UltimatePoint < 2)
@@ -121,6 +120,7 @@ public class GameManager : MonoBehaviour
 
     void Respawn()
     {
+        s_Text.text = "" + Score.ToString("0.0");
         ability = GameObject.FindGameObjectsWithTag("Ability");
         foreach (GameObject a in ability)
         {
