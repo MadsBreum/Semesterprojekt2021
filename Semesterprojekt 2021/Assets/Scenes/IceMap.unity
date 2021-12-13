@@ -579,10 +579,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1060902478420909706, guid: 64660654b9d85ed4da44f1a749f9222c, type: 3}
-      propertyPath: FireRing
-      value: 
-      objectReference: {fileID: 1614398520}
     - target: {fileID: 5255853716767549963, guid: 64660654b9d85ed4da44f1a749f9222c, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -928,7 +924,7 @@ SpriteRenderer:
   m_Size: {x: 1.02, y: 1.27}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &826102919
@@ -1014,49 +1010,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1127250991, guid: 789739477348fce44bedf1091808ff0c, type: 3}
-      propertyPath: m_Size.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1127250991, guid: 789739477348fce44bedf1091808ff0c, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 1127250991, guid: 789739477348fce44bedf1091808ff0c, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.27
-      objectReference: {fileID: 0}
     - target: {fileID: 124458248138048393, guid: 789739477348fce44bedf1091808ff0c, type: 3}
       propertyPath: m_Name
       value: IceWizard
       objectReference: {fileID: 0}
-    - target: {fileID: 687740900950720280, guid: 789739477348fce44bedf1091808ff0c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 951ae94ce904906489ff3eac68792add, type: 3}
-    - target: {fileID: 687740900950720283, guid: 789739477348fce44bedf1091808ff0c, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 687740900950720283, guid: 789739477348fce44bedf1091808ff0c, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 687740900950720283, guid: 789739477348fce44bedf1091808ff0c, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.27
-      objectReference: {fileID: 0}
     - target: {fileID: 3710132117411495551, guid: 789739477348fce44bedf1091808ff0c, type: 3}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3710132117411495551, guid: 789739477348fce44bedf1091808ff0c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3710132117411495551, guid: 789739477348fce44bedf1091808ff0c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 3710132117411495551, guid: 789739477348fce44bedf1091808ff0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1354,7 +1314,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1441,11 +1401,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 18.018972}
   m_EdgeRadius: 0
---- !u!1 &1614398520 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5815867618687102211, guid: 64660654b9d85ed4da44f1a749f9222c, type: 3}
-  m_PrefabInstance: {fileID: 586613829}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1646104356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1976,7 +1931,7 @@ Transform:
   m_GameObject: {fileID: 2111740195}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 5}
-  m_LocalScale: {x: -42.89, y: 16, z: 1}
+  m_LocalScale: {x: -42.89, y: 18, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -2035,6 +1990,10 @@ PrefabInstance:
     - target: {fileID: 2918551471103264976, guid: f2c094417e7b5be4b9a3d293b0dabd4e, type: 3}
       propertyPath: m_Name
       value: Size of 1080 screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 2918551471103264976, guid: f2c094417e7b5be4b9a3d293b0dabd4e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2c094417e7b5be4b9a3d293b0dabd4e, type: 3}
