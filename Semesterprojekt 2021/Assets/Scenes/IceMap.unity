@@ -579,6 +579,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1060902478420909706, guid: 64660654b9d85ed4da44f1a749f9222c, type: 3}
+      propertyPath: FireRing
+      value: 
+      objectReference: {fileID: 1614398520}
     - target: {fileID: 5255853716767549963, guid: 64660654b9d85ed4da44f1a749f9222c, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1437,6 +1441,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 18.018972}
   m_EdgeRadius: 0
+--- !u!1 &1614398520 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5815867618687102211, guid: 64660654b9d85ed4da44f1a749f9222c, type: 3}
+  m_PrefabInstance: {fileID: 586613829}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1646104356
 PrefabInstance:
   m_ObjectHideFlags: 0
