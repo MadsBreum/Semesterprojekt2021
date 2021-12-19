@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -167,4 +168,9 @@ public class GameManager : MonoBehaviour
         Player2.GetComponent<PlayerMovementController>().StartCoroutine("Stunned", pauseTimer);
     }
 
+    public void QuitToMenu()
+    {
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
+        SceneManager.LoadScene("StartMenu");
+    }
 }

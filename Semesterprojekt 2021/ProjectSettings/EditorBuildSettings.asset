@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/IceMap.unity
-    guid: fd075c400fcae1449bffe886ff893910
+    path: Assets/Scenes/StartMenu.unity
+    guid: 914cd62eb6f3c764a8067bb418b78bec
+  - enabled: 1
+    path: Assets/Scenes/LavaMap.unity
+    guid: 372576796868a46489c5ea4558327939
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 35ffb1f8f84dbc34c95e4770509c0745
   m_configObjects: {}

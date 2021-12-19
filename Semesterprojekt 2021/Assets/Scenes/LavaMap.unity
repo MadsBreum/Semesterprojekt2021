@@ -2521,29 +2521,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 514032098, guid: 258b5bd3cfa0eac458bcbac663c80396, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 514032098, guid: 258b5bd3cfa0eac458bcbac663c80396, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 941429086, guid: 258b5bd3cfa0eac458bcbac663c80396, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 941429086, guid: 258b5bd3cfa0eac458bcbac663c80396, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7015947673058364755, guid: 258b5bd3cfa0eac458bcbac663c80396, type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7015947673058364755, guid: 258b5bd3cfa0eac458bcbac663c80396, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7015947673058364756, guid: 258b5bd3cfa0eac458bcbac663c80396, type: 3}
       propertyPath: Player1
@@ -2553,10 +2533,6 @@ PrefabInstance:
       propertyPath: Player2
       value: 
       objectReference: {fileID: 1127250982}
-    - target: {fileID: 7015947673058364756, guid: 258b5bd3cfa0eac458bcbac663c80396, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7015947673058364756, guid: 258b5bd3cfa0eac458bcbac663c80396, type: 3}
       propertyPath: RespawnPoint1
       value: 
