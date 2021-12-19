@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: IceWizard
+  m_Controller: {fileID: 9100000, guid: e270f386d9c8ee24a8ae19f0da6f79dc, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 0061daf4ba4c6b943a0c86464c187c54, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9df3725cc35ee0d4987585de07410e0c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f28afcd0c2f58834395efe48a1f18731, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b68e4ed3987d5eb4690d198dc77867d3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f20af85cb0addbf479b7997d549cf083, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9734327daea3fc7439c57927451d0a0b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c1bccb61ba415f64796be5a03cf6761a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ac5d576022eab0a43b34d3e2d75d1e29, type: 2}

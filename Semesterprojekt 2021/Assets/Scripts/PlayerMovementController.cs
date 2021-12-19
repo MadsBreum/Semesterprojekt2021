@@ -25,6 +25,8 @@ public class PlayerMovementController : MonoBehaviour
 
     public string playerNumber;
 
+    private Animator animator;
+
     private void OnEnable()
     {
         currentVel = maxVel;
@@ -39,6 +41,8 @@ public class PlayerMovementController : MonoBehaviour
         Rb.GetComponent<Rigidbody2D>();
         Bc.GetComponent<BoxCollider2D>();
         Rb.freezeRotation = true;
+
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -57,17 +61,46 @@ public class PlayerMovementController : MonoBehaviour
                     Flip();
                 }
                 movingRight = true;
+
+                animator.SetBool("Walking", true);
             }
 
-            if (moveInput == -1)
+            else if (moveInput == -1)
             {
                 if (movingRight == true)
                 {
                     Flip();
                 }
                 movingRight = false;
+
+                animator.SetBool("Walking", true);
+            }
+            
+            else
+            {
+                animator.SetBool("Walking", false);
+            }
+
+            if (!touchingGround)
+            {
+                animator.SetBool("Jumping", true);
+            }
+            else if (touchingGround)
+            {
+                animator.SetBool("Jumping", false);
             }
         }
+
+        /*
+        if (canMove && touchingGround && moveInput == 1 || moveInput == -1)
+        {
+            animator.SetBool("Walking", true);
+        }
+        else
+        {
+            animator.SetBool("Walking", false);
+        }
+        */
     }
 
     void FixedUpdate()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class AbilitiesFireWizard : MonoBehaviour
 {
     public Transform firePoint;
-    public Transform firePoint2;
+    //public Transform firePoint2;
     public GameObject Fireball;
     public GameObject FireNuke;
     public GameObject FireRing;
@@ -24,6 +24,8 @@ public class AbilitiesFireWizard : MonoBehaviour
     bool offCooldownFirering;
     bool offCooldownFireNuke;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -34,6 +36,11 @@ public class AbilitiesFireWizard : MonoBehaviour
         offCooldownFireNuke = true;
 
         FireRing.gameObject.SetActive(false);
+    }
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -59,6 +66,8 @@ public class AbilitiesFireWizard : MonoBehaviour
                 // Use the ability
                 StartCoroutine("TimeBetweenAbilities");
                 StartCoroutine("UseFireball");
+
+                animator.SetTrigger("Attack");
             }
 
             else if (Input.GetButtonDown(playerNumber + "Ability2") && offCooldownFirering)
@@ -74,6 +83,8 @@ public class AbilitiesFireWizard : MonoBehaviour
                 StartCoroutine("TimeBetweenAbilities");
                 StartCoroutine("UseFireNuke");
                 GetComponent<PlayerHealth>().OnUseUltimate();
+
+                animator.SetTrigger("Attack");
             }
 
             /*

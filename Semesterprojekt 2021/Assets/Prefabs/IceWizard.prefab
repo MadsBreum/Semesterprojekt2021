@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8445542008173415165}
   - component: {fileID: 5208645162767725862}
   - component: {fileID: 1127250991}
+  - component: {fileID: 1127250992}
   m_Layer: 0
   m_Name: IceWizard
   m_TagString: Player2
@@ -249,6 +250,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 1.2}
   m_EdgeRadius: 0
+--- !u!95 &1127250992
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124458248138048393}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: d8f6564a73f81ca43b483848ce2a7a63, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4079906145893655732
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,6 +463,10 @@ PrefabInstance:
       propertyPath: bc2d
       value: 
       objectReference: {fileID: 4516077666024277380}
+    - target: {fileID: 2755904051509253358, guid: e86afa55b8d5a954ab0a9a99ec85d1a1, type: 3}
+      propertyPath: timeActive
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 6932342396996531662, guid: e86afa55b8d5a954ab0a9a99ec85d1a1, type: 3}
       propertyPath: m_RootOrder
       value: 0

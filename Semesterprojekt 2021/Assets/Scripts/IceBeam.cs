@@ -13,7 +13,14 @@ public class IceBeam : MonoBehaviour
 
     public BoxCollider2D bc2d;
 
+    private Animator animator;
+
     // Start is called before the first frame update
+
+    private void Start()
+    {
+        animator = GetComponentInParent<Animator>();
+    }
 
     void OnEnable()
     {
@@ -32,6 +39,7 @@ public class IceBeam : MonoBehaviour
         yield return new WaitForSeconds(timeActive);
 
         gameObject.SetActive(false);
+        animator.SetBool("BeamAttack", false);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

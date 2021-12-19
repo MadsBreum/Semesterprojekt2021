@@ -27,6 +27,8 @@ public class AbilitiesIceWizard : MonoBehaviour
     bool offCooldownIceSpikes;
     bool offCooldownIceBeam;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -37,6 +39,11 @@ public class AbilitiesIceWizard : MonoBehaviour
         offCooldownIceBeam = true;
 
         IceBeam.gameObject.SetActive(false);
+    }
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -54,6 +61,8 @@ public class AbilitiesIceWizard : MonoBehaviour
                 // Use the ability
                 StartCoroutine("TimeBetweenAbilities");
                 StartCoroutine("UseIceShards");
+
+                animator.SetTrigger("Attack");
             }
 
             // If the ability key is pressed once, check if it's off cooldown and if the player is touching the ground
@@ -71,6 +80,8 @@ public class AbilitiesIceWizard : MonoBehaviour
                 StartCoroutine("TimeBetweenAbilities");
                 StartCoroutine("UseIceBeam");
                 GetComponent<PlayerHealth>().OnUseUltimate();
+
+                //animator.SetBool("BeamAttack", true);
             }
         }
     }
@@ -118,12 +129,13 @@ public class AbilitiesIceWizard : MonoBehaviour
     IEnumerator UseIceBeam()
     {
         IceBeam.gameObject.SetActive(true);
-
+        animator.SetBool("BeamAttack", true);
         offCooldownIceBeam = false;
         Debug.Log("IceBeam on cooldown");
 
         yield return new WaitForSeconds(cooldownTimeIceBeam);
 
+        //animator.SetBool("BeamAttack", false);
         offCooldownIceBeam = true;
         Debug.Log("IceBeam off cooldown");
     }
