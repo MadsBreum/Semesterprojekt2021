@@ -157,7 +157,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5255853716767549963, guid: 64660654b9d85ed4da44f1a749f9222c, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5255853716767549963, guid: 64660654b9d85ed4da44f1a749f9222c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -203,10 +203,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireWizard
       objectReference: {fileID: 0}
-    - target: {fileID: 8806692886183548925, guid: 64660654b9d85ed4da44f1a749f9222c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64660654b9d85ed4da44f1a749f9222c, type: 3}
 --- !u!1001 &1505478011
@@ -220,13 +216,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: IceWizard
       objectReference: {fileID: 0}
-    - target: {fileID: 124458248138048393, guid: 789739477348fce44bedf1091808ff0c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3710132117411495551, guid: 789739477348fce44bedf1091808ff0c, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3710132117411495551, guid: 789739477348fce44bedf1091808ff0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -378,7 +370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2191365205471566153, guid: 01409c8ae482016418f72dba701e581d, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2191365205471566153, guid: 01409c8ae482016418f72dba701e581d, type: 3}
       propertyPath: m_LocalPosition.x

@@ -36,12 +36,17 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ability = GameObject.FindGameObjectsWithTag("Ability");
-        Player1.transform.position = RespawnPoint1.transform.position;
-        Player1.SetActive(enabled);
-        Player2.transform.position = RespawnPoint2.transform.position;
-        Player2.SetActive(enabled);
-        RoundPauser();
 
+        Player1.transform.position = RespawnPoint1.transform.position;
+        Player1.transform.rotation = RespawnPoint1.transform.rotation;
+        Player1.SetActive(enabled);
+
+        Player2.transform.position = RespawnPoint2.transform.position;
+        Player2.transform.rotation = RespawnPoint2.transform.rotation;
+        Player2.GetComponent<PlayerMovementController>().movingRight = false;
+        Player2.SetActive(enabled);
+
+        RoundPauser();
     }
 
     // Update is called once per frame
@@ -127,21 +132,31 @@ public class GameManager : MonoBehaviour
     {
         s_Text.text = "" + Score.ToString("0.0");
         ability = GameObject.FindGameObjectsWithTag("Ability");
+
         foreach (GameObject a in ability)
         {
             a.SetActive(false);
         }
+
         Player2.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         Player1.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        
         Player2.transform.position = RespawnPoint2.transform.position;
+        Player2.transform.rotation = RespawnPoint2.transform.rotation;
+        Player2.GetComponent<PlayerMovementController>().movingRight = false;
+
         Player1.transform.position = RespawnPoint1.transform.position;
+        Player1.transform.rotation = RespawnPoint1.transform.rotation;
+        
         Player2.SetActive(false);
         Player1.SetActive(false);
         Player2.SetActive(enabled);
         Player1.SetActive(enabled);
+        
         UltimatePoint1.transform.GetChild(0).gameObject.SetActive(enabled);
         UltimatePoint2.transform.GetChild(0).gameObject.SetActive(enabled);
         UltimatePoint3.transform.GetChild(0).gameObject.SetActive(enabled);
+
         if (p2Score == 3)
         {
             w_Text.text = "Player2 WINS!";
@@ -158,7 +173,6 @@ public class GameManager : MonoBehaviour
         {
             RoundPauser();
         }
-
     }
     void RoundPauser()
     {

@@ -19,7 +19,7 @@ public class PlayerMovementController : MonoBehaviour
     float moveInput = 0;
     float jumpInput = 0;
 
-    bool movingRight = true;
+    public bool movingRight = true;
 
     public bool canMove = true;
 
